@@ -28,12 +28,11 @@ Things you may want to cover:
 |birthday_month|date|null: false|
 |birthday_day|date|null: false|
 ### Association
-- has_many :items through: :comments
+- has_many :items
 - has_many :comments
-- has_many :items through: :likes
 - has_many :likes
 - has_many :address
-- belongs_to :credit-cards
+- has_one :credit_cards
 
 ## Itemsテーブル
 
@@ -48,17 +47,12 @@ Things you may want to cover:
 |prefecture|string|null: false|
 |shipping_date|string|null: false|
 |brand|string| |
-|image1|string| |
-|image2|string| |
-|image3|string| |
-|image4|string| |
-
 ### Association
-- has_many :users through: :likes
 - has_many :likes
-- has_many :users through: :comments
 - has_many :comments
-- belongs_to :categories
+- has_many :images
+- belongs_to :user
+- belongs_to :category
 
 ## Commentsテーブル
 
@@ -122,6 +116,15 @@ Things you may want to cover:
 |apartment|string| |
 ### Association
 - belongs_to :user
+
+## Imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key:true|
+|image|string|null: false|
+### Association
+- belongs_to :item
 
 
 * Database initialization
