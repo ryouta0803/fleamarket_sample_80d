@@ -38,7 +38,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false|
+|category_id|integer|null: false|
 |name|string|null: false, index: true|
 |price|integer|null: false|
 |explain|text|null: false|
@@ -46,13 +46,14 @@ Things you may want to cover:
 |postage|integer|null: false|
 |prefecture|string|null: false|
 |shipping_date|string|null: false|
-|brand|string| |
+|brand_id|string| |
 ### Association
 - has_many :likes
 - has_many :comments
 - has_many :images
 - belongs_to :user
 - belongs_to :category
+- belongs_to :brand
 
 ## Commentsテーブル
 
@@ -126,6 +127,14 @@ Things you may want to cover:
 ### Association
 - belongs_to :item
 
+## Brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string| |
+### Association
+- has_many :items
 
 * Database initialization
 
