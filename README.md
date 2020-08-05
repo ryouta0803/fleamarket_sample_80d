@@ -38,7 +38,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|category_id|integer|null: false|
+|category|references|null: false, foreign_key: true|
+|brand|references|foreign_key: true|
 |name|string|null: false, index: true|
 |price|integer|null: false|
 |explain|text|null: false|
@@ -46,7 +47,6 @@ Things you may want to cover:
 |postage|integer|null: false|
 |prefecture|string|null: false|
 |shipping_date|string|null: false|
-|brand_id|string| |
 ### Association
 - has_many :likes
 - has_many :comments
@@ -59,8 +59,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 |comment|text| |
 ### Association
 - belongs_to :user
@@ -79,8 +79,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -90,7 +90,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |card_company|string	null: false|
 |card_number|string|null: false|
 |card_year|integer|null: false|
@@ -122,7 +122,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|null: false, foreign_key:true|
+|item|references|null: false, foreign_key:true|
 |image|string|null: false|
 ### Association
 - belongs_to :item
@@ -132,7 +132,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string| |
 ### Association
 - has_many :items
 
