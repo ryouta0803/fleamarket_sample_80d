@@ -31,13 +31,14 @@ Things you may want to cover:
 - has_many :items
 - has_many :comments
 - has_many :likes
-- has_many :address
-- has_one :credit_cards
+- has_many :addresses
+- has_one :credit_card
 
 ## Itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |brand|references|foreign_key: true|
 |name|string|null: false, index: true|
@@ -61,7 +62,7 @@ Things you may want to cover:
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
-|comment|text| |
+|comment|text|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -105,6 +106,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|null: false, foreign_key: true|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
