@@ -13,7 +13,7 @@ Things you may want to cover:
 
 * Database creation
 
-## usersテーブル
+## usersテーブルいが
 
 |Column|Type|Options|
 |------|----|-------|
