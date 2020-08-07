@@ -12,18 +12,12 @@ Things you may want to cover:
 |nick_name|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
-|birthday_year|date|null: false|
-|birthday_month|date|null: false|
-|birthday_day|date|null: false|
+|birth_day|date|null: false|
 ### Association
 - has_many :items
 - has_many :comments
 - has_many :likes
-- has_many :addresses
+- has_one :addresses
 - has_one :credit_card
 
 ## Itemsテーブル
