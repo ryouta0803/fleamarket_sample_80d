@@ -13,6 +13,7 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |birth_day|date|null: false|
+
 ### Association
 - has_many :items
 - has_many :comments
@@ -123,12 +124,5 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
 * ...
+test
