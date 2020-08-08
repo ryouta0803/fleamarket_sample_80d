@@ -53,8 +53,6 @@
           margin-left: 8px;
           font-size: 12px;
           padding: 0 4px;
-          // background-color: #ff0211;
-          // color: #fff;
           border-radius: 2px;
           display: inline-block;
           font-style: normal;
@@ -128,8 +126,6 @@
                 margin-left: 8px;
                 font-size: 12px;
                 padding: 0 4px;
-                // background-color: #ff0211;
-                // color: #fff;
                 border-radius: 2px;
                 display: inline-block;
                 font-style: normal;
@@ -237,8 +233,6 @@
             margin-left: 8px;
             font-size: 12px;
             padding: 0 4px;
-            // background-color: #ff0211;
-            // color: #fff;
             border-radius: 2px;
             display: inline-block;
             font-style: normal;
@@ -260,12 +254,9 @@
             width: inherit;
             select{
               @include colorstyle(#fff, #222, #ff0211);
-              // border-color: #ff0211;
-              // background-color: #fff;
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
-              // color: #222;
               font-size: 16px;
               height: 48px;
               line-height: 1;
@@ -276,12 +267,9 @@
             }
             input{
               @include colorstyle(#fff, #222,#ff0211);
-              // border-color: #ff0211;
-              // background-color: #fff;
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
-              // color: #222;
               font-size: 16px;
               height: 48px;
               line-height: 1;
@@ -290,10 +278,10 @@
               padding: 0 56px 0 16px;
               width: 100%;
             }
-            #children_wrapper {  //浅野追記
+            #children_wrapper {  
               padding-top: 10px;
             }
-            #grandchildren_wrapper { //浅野追記
+            #grandchildren_wrapper { 
               padding-top: 10px;
             }   
             i{
@@ -317,12 +305,9 @@
             width: inherit;
             select{
               @include colorstyle(#fff, #222,#ff0211);
-              // border-color: #ff0211;
-              // background-color: #fff;
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
-              // color: #222;
               font-size: 16px;
               height: 48px;
               line-height: 1;
@@ -331,10 +316,10 @@
               padding: 0 56px 0 16px;
               width: 100%;
             }
-            #children_wrapper {  //浅野追記
+            #children_wrapper {  
               padding-top: 10px;
             }
-            #grandchildren_wrapper { //浅野追記
+            #grandchildren_wrapper { 
               padding-top: 10px;
             }   
             i{
@@ -486,8 +471,6 @@
       }
       &__listing{
         @include colorstyle(#ea352d, #fff,0);
-        // background-color: #ea352d;
-        // color: #fff;
         width: 100%;
         font-size: 17px;
         min-height: 48px;
@@ -496,9 +479,6 @@
       &__draft{
         @include colorstyle(#ccc, #222,transparent);
         margin-top: 24px;
-        // background-color: #ccc;
-        // border-color: transparent;
-        // color: #222;
         width: 100%;
         font-size: 17px;
         min-height: 48px;
