@@ -1,3 +1,9 @@
+@mixin colorstyle($background-color,$color,$border-color) {
+  background-color: $background-color;
+  color: $color;
+  border-color: $border-color;
+}
+
 .wrapper {
   background-color: rgb(245, 245, 245);
 
@@ -22,8 +28,7 @@
     margin: 0px auto;
     max-width: 700px;
     background-color:white;
-
-  }
+  
   
   
   
@@ -43,12 +48,13 @@
           font-weight: 600;
           line-height: 1.4em;
         }
-        &__span{
+        &__span {
+          @include colorstyle(#ff0211, #fff, 0);
           margin-left: 8px;
           font-size: 12px;
           padding: 0 4px;
-          background-color: #ff0211;
-          color: #fff;
+          // background-color: #ff0211;
+          // color: #fff;
           border-radius: 2px;
           display: inline-block;
           font-style: normal;
@@ -118,11 +124,12 @@
                 line-height: 1.4em;
               }
               &__span{
+                @include colorstyle(#ff0211, #fff, 0);
                 margin-left: 8px;
                 font-size: 12px;
                 padding: 0 4px;
-                background-color: #ff0211;
-                color: #fff;
+                // background-color: #ff0211;
+                // color: #fff;
                 border-radius: 2px;
                 display: inline-block;
                 font-style: normal;
@@ -226,11 +233,12 @@
             line-height: 1.4em;
           }
           span{
+            @include colorstyle(#ff0211, #fff, 0);
             margin-left: 8px;
             font-size: 12px;
             padding: 0 4px;
-            background-color: #ff0211;
-            color: #fff;
+            // background-color: #ff0211;
+            // color: #fff;
             border-radius: 2px;
             display: inline-block;
             font-style: normal;
@@ -251,12 +259,13 @@
             position: relative;
             width: inherit;
             select{
-              border-color: #ff0211;
-              background-color: #fff;
+              @include colorstyle(#fff, #222, #ff0211);
+              // border-color: #ff0211;
+              // background-color: #fff;
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
-              color: #222;
+              // color: #222;
               font-size: 16px;
               height: 48px;
               line-height: 1;
@@ -266,12 +275,13 @@
               width: 100%;
             }
             input{
-              border-color: #ff0211;
-              background-color: #fff;
+              @include colorstyle(#fff, #222,#ff0211);
+              // border-color: #ff0211;
+              // background-color: #fff;
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
-              color: #222;
+              // color: #222;
               font-size: 16px;
               height: 48px;
               line-height: 1;
@@ -306,12 +316,13 @@
             position: relative;
             width: inherit;
             select{
-              border-color: #ff0211;
-              background-color: #fff;
+              @include colorstyle(#fff, #222,#ff0211);
+              // border-color: #ff0211;
+              // background-color: #fff;
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
-              color: #222;
+              // color: #222;
               font-size: 16px;
               height: 48px;
               line-height: 1;
@@ -388,6 +399,7 @@
               line-height: 1.4em;
             }
             span{
+              @include colorstyle(#fff, #fff, 0);
               margin-left: 8px;
               font-size: 12px;
               padding: 0 4px;
@@ -473,18 +485,20 @@
         filter: brightness(0.8);
       }
       &__listing{
-        background-color: #ea352d;
-        color: #fff;
+        @include colorstyle(#ea352d, #fff,0);
+        // background-color: #ea352d;
+        // color: #fff;
         width: 100%;
         font-size: 17px;
         min-height: 48px;
         padding: 0 24px;
       }
       &__draft{
+        @include colorstyle(#ccc, #222,transparent);
         margin-top: 24px;
-        background-color: #ccc;
-        border-color: transparent;
-        color: #222;
+        // background-color: #ccc;
+        // border-color: transparent;
+        // color: #222;
         width: 100%;
         font-size: 17px;
         min-height: 48px;
@@ -700,4 +714,4 @@
       opacity: 0.7;
     }
   }
-
+}
