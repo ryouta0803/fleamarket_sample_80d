@@ -13,6 +13,7 @@ Things you may want to cover:
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |birth_day|date|null: false|
+
 ### Association
 - has_many :items
 - has_many :comments
