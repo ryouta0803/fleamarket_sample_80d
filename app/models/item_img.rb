@@ -1,4 +1,5 @@
 class ItemImg < ApplicationRecord
-  belongs_to :item, optional: true
-  mount_uploader :url, ItemImgUploader
+  belongs_to :item
+  mount_uploader :image, ItemImgUploader
+  validates :image, presence: true
 end

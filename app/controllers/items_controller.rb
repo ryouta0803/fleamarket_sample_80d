@@ -6,11 +6,13 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @images = @item.item_imgs.build
-    @category = Category.where(ancestry: "").limit(13)
+    # @category = Category.where(ancestry: "").limit(13)
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
+    @brand = Brand.new(brand_params)
     if @item.save
       redirect_to root_path
     else
@@ -39,5 +41,9 @@ class ItemsController < ApplicationController
     :postage, :prefecture,
     :shipping_date, :category_id, 
     item_imgs_attributes: [:url, :_destroy, :id])
+  end
+
+  def  brand_params
+    params.require(:brand).permit(:name)
   end
 end

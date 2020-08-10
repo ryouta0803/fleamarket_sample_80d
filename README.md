@@ -38,7 +38,7 @@ Things you may want to cover:
 ### Association
 - has_many :likes
 - has_many :comments
-- has_many :images
+- has_many :item_imgs
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
