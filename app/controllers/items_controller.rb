@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  # before_action :set_item, only: [:show]
 
   def index
     @items = Item.all
@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # @comment = Comment.new 準備のみ
+    # @comments = @item.comments.includes(:user) 準備のみ
   end
 
   def edit
@@ -26,6 +28,6 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = item.find(params[:id])
+    # @item = item.find(params[:id])
   end
 end

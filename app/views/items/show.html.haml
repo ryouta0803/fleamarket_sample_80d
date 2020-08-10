@@ -4,12 +4,16 @@
   .item
     %h1.name
       バッグ
+      -# = @items.name  準備のみ
     .main
       .images
         .display
           %ul.display__up
+            -# - @item.item_images.each do |item_image| 準備のみ
+            テスト
             %li.display__up__slide-image
               = image_tag 'test.jpeg', size: "300x300"
+              -# = image_tag item_image.image_url, size: "300x300" 準備のみ
           %ul.display__down
             %li.display__down__thumbnail-image
               = image_tag 'test.jpeg', size: "60x60"
@@ -17,6 +21,11 @@
               = image_tag 'test.jpeg', size: "60x60"
             %li.display__down__thumbnail-image
               = image_tag 'test.jpeg', size: "60x60"
+
+            -# - @item.item_images.each do |item_image|
+            -#   %li.display__down__thumbnail-image
+            -#     = image_tag item_image.image_url, size: "60x60"  準備のみ
+
       %table.detail
         %tbody
           %tr
@@ -24,6 +33,7 @@
               出品者
             %td
               いいだー
+              -# = link_to @item.user.nickname, "#" 準備のみ
               %div.evaluation
                 %div
                   %i.fas.fa-laugh
@@ -35,49 +45,58 @@
             %th
               カテゴリー
             %td.category
-              = link_to "" do
+              = link_to "#" do
                 .category
                   %span
                     バッグ
-              = link_to "" do
+                    -# = @category_name 準備のみ
+              = link_to "#" do
                 .category
                   %i.fas.fa-chevron-right
                     %span
                       ばっぐばっぐ
-              = link_to "" do
+                      -# = @category_name 準備のみ
+              = link_to "#" do
                 .category
                   %i.fas.fa-chevron-right
                     %span
                       ばっぐばっぐばっぐ
+                      -# = @category_name 準備のみ
           %tr
             %th
               ブランド
             %td
               Dチーム
+              = @item.brand_id
           %tr
             %th
               商品の状態
             %td
               良い
+              -# = @item.status 準備のみ
           %tr
             %th
               配送料の負担
             %td
               出品者は負担
+              -# = @item.postage  準備のみ
           %tr
             %th
               配送元地域
             %td
               うちゅう
+              -# = @item.prefecture  準備のみ
           %tr
             %th
               発送日の目安
             %td
               3日くらい
+              -# = @item.shipping_date  準備のみ
     .price
       %span.price__amount
         ¥
         30000
+        -# = @item.price  準備のみ
       %span.price__tax
         (税込)
       %span.price__postage-included
@@ -86,6 +105,8 @@
       = link_to "購入画面に進む", "#", class: "item__purchase-screen-button"
     .description
       これはとても良い商品です！
+      -# %p.description__inner
+      -#   = simple_format @item.explain  準備のみ
     .buttons
       .buttons__left
         %button.buttons__left__heart
