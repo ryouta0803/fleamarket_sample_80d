@@ -1,0 +1,211 @@
+.home
+  .item
+    %h1.name
+      バッグ
+    .main
+      .images
+        .display
+          %ul.display__up
+            %li.display__up__slide-image
+              = image_tag 'test.jpeg', size: "300x300"
+          %ul.display__down
+            %li.display__down__thumbnail-image
+              = image_tag 'test.jpeg', size: "60x60"
+            %li.display__down__thumbnail-image
+              = image_tag 'test.jpeg', size: "60x60"
+            %li.display__down__thumbnail-image
+              = image_tag 'test.jpeg', size: "60x60"
+      %table.detail
+        %tbody
+          %tr
+            %th
+              出品者
+            %td
+              いいだー
+              %div.evaluation
+                %div
+                  %i.fas.fa-laugh
+                  = rand(100)
+                %div
+                  %i.fas.fa-sad-tear
+                  = rand(100)
+          %tr
+            %th
+              カテゴリー
+            %td.category
+              = link_to "" do
+                .category
+                  %span
+                    バッグ
+              = link_to "" do
+                .category
+                  %i.fas.fa-chevron-right
+                    %span
+                      ばっぐばっぐ
+              = link_to "" do
+                .category
+                  %i.fas.fa-chevron-right
+                    %span
+                      ばっぐばっぐばっぐ
+          %tr
+            %th
+              ブランド
+            %td
+              Dチーム
+          %tr
+            %th
+              商品の状態
+            %td
+              良い
+          %tr
+            %th
+              配送料の負担
+            %td
+              出品者は負担
+          %tr
+            %th
+              配送元地域
+            %td
+              うちゅう
+          %tr
+            %th
+              発送日の目安
+            %td
+              3日くらい
+    .price
+      %span.price__amount
+        ¥
+        30000
+      %span.price__tax
+        (税込)
+      %span.price__postage-included
+        送料込み
+    .message
+      = link_to "購入画面に進む", "#", class: "item__purchase-screen-button"
+    .description
+      これはとても良い商品です！
+    .buttons
+      .buttons__left
+        %button.buttons__left__heart
+          %i.far.fa-heart
+          %span
+            いいね!
+          %span
+            = rand (1000)
+        %button.buttons__left__report
+          %i.far.fa-flag
+          %span
+            不適切な商品の報告
+      .buttons__right
+        = link_to "#" do
+          %i.fas.fa-lock
+          %span
+            あんしん・あんぜんへの取り組み
+
+  .comment
+    .container
+      %form.container__message-form
+        %p.container__message-form__attention
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.container__message-form__text
+        %button.container__message-form__comment-btn
+          %span
+            コメントする
+
+  .social-media
+    %ul.social-media__box
+      %li.social-media__box__facebook
+        = link_to "#" do
+          %i.fab.fa-facebook-square.fa-3x
+      %li.social-media__box__twitter
+        = link_to "#" do
+          %i.fab.fa-twitter-square.fa-3x
+      %li.social-media__box__line
+        = link_to "#" do
+          %i.fab.fa-line.fa-3x
+      %li.social-media__box__pinterest
+        = link_to "#" do
+          %i.fab.fa-pinterest-square.fa-3x
+
+  .other-items
+    .login-user
+      %h2.title
+        = link_to "いいださんのその他の出品", "#"
+      .content
+        .item-box
+          %figure.image
+            = image_tag "test2.jpg", size:"220x220"
+          .body
+            %h3.body__name
+              バッグ100
+            .body__num
+              .body__num__price
+                ¥
+                5000
+              .body__num__heart
+                %i.far.fa-heart
+                %span
+                  = rand(1000)
+        .item-box
+          %figure.image
+            = image_tag "test2.jpg", size:"220x220"
+          .body
+            %h3.body__name
+              バッグ200
+            .body__num
+              .body__num__price
+                ¥
+                5000
+              .body__num__heart
+                %i.far.fa-heart
+                %span
+                  = rand(1000)
+        .item-box
+          %figure.image
+            = image_tag "test2.jpg", size:"220x220"
+          .body
+            %h3.body__name
+              バッグ300
+            .body__num
+              .body__num__price
+                ¥
+                5000
+              .body__num__heart
+                %i.far.fa-heart
+                %span
+                  = rand(1000)
+
+    .same-category
+      %h2.title
+        = link_to "その他の商品", "#"
+      .content
+        .item-box
+          %figure.image
+            = image_tag "test3.jpg", size: "220x220"
+          .body
+            %h3.body__name
+              ポーチ1
+            .body__num
+              .body__num__price
+                ¥
+                6000
+        .item-box
+          %figure.image
+            = image_tag "test3.jpg", size: "220x220"
+          .body
+            %h3.body__name
+              ポーチ2
+            .body__num
+              .body__num__price
+                ¥
+                6000
+        .item-box
+          %figure.image
+            = image_tag "test3.jpg", size: "220x220"
+          .body
+            %h3.body__name
+              ポーチ3
+            .body__num
+              .body__num__price
+                ¥
+                6000

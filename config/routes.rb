@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
   
   resources :items
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'items#index'
   # resources :users, only: [:edit, :update]
   resources :cards, only: [:new, :show, :destroy] do
