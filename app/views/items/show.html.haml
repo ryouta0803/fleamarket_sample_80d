@@ -67,7 +67,7 @@
               ブランド
             %td
               Dチーム
-              = @item.brand_id
+              -# = @item.brand_id 準備のみ
           %tr
             %th
               商品の状態
@@ -154,17 +154,21 @@
     .login-user
       %h2.title
         = link_to "いいださんのその他の出品", "#"
+        -# = link_to "#{@item.user.nick_name}さんのその他の出品", ""  準備のみ
       .content
         .item-box
           %figure.image
             = image_tag "test2.jpg", size:"220x220"
+            -# = image_tag item.item_images.find_by(item_id: item.id).image_url, size:"220x220" 準備
           .body
             %h3.body__name
               バッグ100
+              -# = item.name  準備
             .body__num
               .body__num__price
                 ¥
                 5000
+                -# = item.price  準備
               .body__num__heart
                 %i.far.fa-heart
                 %span
@@ -172,13 +176,16 @@
         .item-box
           %figure.image
             = image_tag "test2.jpg", size:"220x220"
+            -# = image_tag item.item_images.find_by(item_id: item.id).image_url, size:"220x220" 準備
           .body
             %h3.body__name
-              バッグ200
+              バッグ100
+              -# = item.name  準備
             .body__num
               .body__num__price
                 ¥
                 5000
+                -# = item.price  準備
               .body__num__heart
                 %i.far.fa-heart
                 %span
@@ -186,13 +193,16 @@
         .item-box
           %figure.image
             = image_tag "test2.jpg", size:"220x220"
+            -# = image_tag item.item_images.find_by(item_id: item.id).image_url, size:"220x220" 準備
           .body
             %h3.body__name
-              バッグ300
+              バッグ100
+              -# = item.name  準備
             .body__num
               .body__num__price
                 ¥
                 5000
+                -# = item.price  準備
               .body__num__heart
                 %i.far.fa-heart
                 %span
@@ -208,29 +218,35 @@
           .body
             %h3.body__name
               ポーチ1
+              -# = item.name  準備
             .body__num
               .body__num__price
                 ¥
                 6000
+                -# = item.price  準備
         .item-box
           %figure.image
             = image_tag "test3.jpg", size: "220x220"
           .body
             %h3.body__name
-              ポーチ2
+              ポーチ1
+              -# = item.name  準備
             .body__num
               .body__num__price
                 ¥
                 6000
+                -# = item.price  準備
         .item-box
           %figure.image
             = image_tag "test3.jpg", size: "220x220"
           .body
             %h3.body__name
-              ポーチ3
+              ポーチ1
+              -# = item.name  準備
             .body__num
               .body__num__price
                 ¥
                 6000
+                -# = item.price  準備
 
 = render "footer"
