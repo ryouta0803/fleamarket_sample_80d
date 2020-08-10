@@ -4,6 +4,7 @@
 @import "modules/user";
 @import "items";
 @import "modules/flash
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -19,6 +20,3 @@
  *= require_tree .
  *= require_self
  */
-//  @import "reset";まだないよ
-//  @import "modules/comments";まだないよ
-
