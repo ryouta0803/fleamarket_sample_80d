@@ -1,3 +1,4 @@
+
 document.addEventListener(
   "DOMContentLoaded", e => {//DOM読み込みが完了したら実行
     if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
@@ -6,13 +7,16 @@ document.addEventListener(
       btn.addEventListener("click", e => { //ボタンが押されたときに作動
         e.preventDefault(); //ボタンを一旦無効
         let card = {//カード情報生成
+          
           number: document.getElementById("card_number").value,
           cvc: document.getElementById("cvc").value,
           exp_month: document.getElementById("exp_month").value,
           exp_year: document.getElementById("exp_year").value
         }; //入力されたデータを取得
         Payjp.createToken(card, (status, response) => {//トークン生成
+          
           if (status === 200) { //成功した場合
+            console.log(status)
             $("#card_number").removeAttr("name");
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");
