@@ -120,7 +120,10 @@
   }
 }
 
-.Wrapper
+.Wrapper{
+
+  background-color: whitesmoke;
+}
 
 .Header {
   height: 128px;
@@ -146,13 +149,12 @@
   &__container {
     box-sizing: inherit;
 
-    &__header {
+    &__main__header {
       height: 128px;
       border-width: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #666666;
       color: #000000;
 
       h1 {
@@ -160,8 +162,7 @@
         width: 150px;
         display: flex;
         align-items: center;
-        justify-content: center;;
-        background-color: #888888;
+        justify-content: center;
       }
     }
     &__main {
@@ -170,12 +171,16 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background-color: #eeeeee;
+      background-color: whitesmoke;
 
       &__head {
         height: 100px;
-        width: 100%;
-        background-color: #777777;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: 0px, 50px;
         
       }
 
@@ -184,12 +189,16 @@
         justify-content: center;
         align-items: center;
         font-size: 22px;
+        font-weight: 600;
+        color: #333333;
+
       }
 
       &__inner {
-        width: 100%;
+        width: 50%;
         height: 100%;
-        margin: 30px;
+        margin-top: 2px;
+        background-color: white;
 
         &__content {
           width: 100%;
@@ -207,34 +216,81 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding-top: 15px;
 
             .form-group {
-              width: 300px;
+              width: 350px;
+              margin: 15px;
             }
 
             label {
-              font-weight: bold;
+              font-weight: 600;
+              color: #333333;
             }
 
             span {
-              font-size: 15px;
+              margin-left: 8px;
+              font-size: 12px;
+              padding: 0 4px;
+              border-radius: 2px;
+              display: inline-block;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.4em;
               background-color: red;
               color: white;
-              margin-left: 10px;
             }
 
-            input [type="text"]{
+            input[type="text"]{
               width: 300px;
               height: 35px;
+              margin-top: 6px;
+            }
+
+            input[type="email"]{
+              width: 300px;
+              height: 35px;
+              margin-top: 6px;
+            }
+
+            input[type="password"]{
+              width: 300px;
+              height: 35px;
+              margin-top: 6px;
+            }
+
+            .has-error-text {
+              font-size: 15px;
+              margin-top: 5px;
+            }
+
+            .form-info-text {
+              font-size: 15px;
+            }
+
+            .form-password-revelation-toggle {
+              height: 15px;
             }
   
             .actions {
-              width: 200px;
-              height: 100px;
-              padding: 40px;
+              padding: 15px;
               
             }
+
+            .formField__label--normal {
+              font-size: 17px;
+              text-align: left;
+              select {
+                width: 80px;
+                height: 40px;
+                text-align: right;
+              }
+            }
+
             input[type="submit"] {
+              width: 150px;
+              height: 40px;
+              margin: 30px;
               background-color: red;
               color: white;
             }

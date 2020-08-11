@@ -25,6 +25,7 @@
                 ブランド
       .header__contents__nav-list__right
         %ul
+          .header__contents__nav-list__right__login
           -if user_signed_in?
             .header__contents__nav-list__right__login
               %li.header__contents__nav-list__right__login__li
@@ -33,7 +34,9 @@
             
             .header__contens__nav-list__right__new
               %li.header__contens__nav-list__right__new__li
-                =link_to user_path(current_user[:id]) do
+                =link_to '#', method: :get, class: 'Button-show' do
+                  マイページ
+                -# =link_to user_path(current_user[:id]) do
                   マイページ     
           -else
             .header__contents__nav-list__right__login
