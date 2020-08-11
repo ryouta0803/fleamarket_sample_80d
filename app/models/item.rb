@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   # binding.pry
-  validates :name, presence: true, length: {maximum: 40}
-  validates :explain, presence: true, length: {maximum: 1000}
-  validates :price, presence: true, numericality: {greater_than_or_equal_to: 300}
+  validates :name, presence: true
+  validates :explain, presence: true
+  validates :price, presence: true
   validates :category, presence: true
   validates :status, presence: true
   validates :postage, presence: true

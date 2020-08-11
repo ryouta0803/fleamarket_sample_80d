@@ -21,12 +21,22 @@
       %span.upload-box__head__span 必須
     %p.discription 最大10枚までアップロードできます
 
-    #image-box
-      = f.fields_for :images do |image|
-        .js-file_group{"data-index": "#{image.index}"}
-          = image.file_field :src, class: 'js-file'
-          %br/
-          %span.js-remove 削除
+  #image-box
+    #previews
+      - if @item.persisted?
+        - @item.images.each_with_index do |image, i|
+          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index": "#{image.index}"}
+        = image.file_field :src, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+      - if @item.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @item.persisted?
+      .js-file_group{"data-index" => "#{@item.images.count}"}
+        = file_field_tag :src, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+        .js-remove 削除
 
   %hr.content-sale--hr
   .content-sale__main__box__form
@@ -38,7 +48,7 @@
           必須
       .content-sale__main__box__form__item__box
         .content-sale__main__box__form__item__box__input
-          = f.text_field :name, placeholder:"商品名（必須 40文字以内)", class: "input", maximum: 40
+          = f.text_field :name, placeholder:"商品名（必須 40文字以内)", class: "input", maxlength: "40"
 
     .content-sale__main__box__form__intro
       .content-sale__main__box__form__inner__title
@@ -47,7 +57,7 @@
         %span.content-sale__main__box__form__inner__title__span
           必須
       .content-sale__main__box__form__inner__intro
-        = f.text_area :explain, class: "items-new-form-area__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "7", id: "input-text"
+        = f.text_area :explain, class: "items-new-form-area__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "7", id: "input-text", maxlength: "1000"
         .content-sale__main__box__form__inner__intro__bottom
           %p{id: "counter"}
 
