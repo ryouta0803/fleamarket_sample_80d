@@ -23,21 +23,28 @@
             %li.header__contents__nav-list__left__brand__li
               =link_to "#" do
                 ブランド
-
       .header__contents__nav-list__right
         %ul
           .header__contents__nav-list__right__login
-            %li.header__contents__nav-list__right__login__li
-              =link_to "#" do
-                ログイン
-              
-          .header__contens__nav-list__right__new
-            %li.header__contents__nav-list__right__new__li
-              =link_to "#" do
-                新規登録  
-
-
-
+            - if user_signed_in?
+              %li.header__contents__nav-list__right__login__li
+                = link_to 'マイページ', '#', method: :get, class: 'Button-show'
+              %li
+                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
+            - else
+              %li.header__contents__nav-list__right__new__li
+                = link_to 'ログイン', new_user_session_path, method: :get, class: 'Button2'
+              %li
+                = link_to '新規登録', new_user_registration_path, method: :get, class: 'Button2'
+          -# .header__contents__nav-list__right__login
+          -#   -if user_signed_in?
+          -#     .header__contents__nav-list__right__login
+          -#       %li.header__contents__nav-list__right__login__li
+          -#         =link_to 'ログアウト'destroy_user_session_path, method: "DELETE" do
+          -#     .header__contens__nav-list__right__new
+          -#         %li.header__contens__nav-list__right__new__li
+          -#           =link_to 'マイページ','#'(current_user[:id]) do
+                 -else
 -# .category__container
 -#   .category__container--top
 -#     %h3
