@@ -25,26 +25,31 @@
                 ブランド
       .header__contents__nav-list__right
         %ul
-          .header__contents__nav-list__right__login
-            - if user_signed_in?
+          -if user_signed_in?
+            .header__contents__nav-list__right__login
               %li.header__contents__nav-list__right__login__li
-                = link_to 'マイページ', '#', method: :get, class: 'Button-show'
-              %li
-                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
-            - else
-              %li.header__contents__nav-list__right__new__li
-                = link_to 'ログイン', new_user_session_path, method: :get, class: 'Button2'
-              %li
-                = link_to '新規登録', new_user_registration_path, method: :get, class: 'Button2'
-          -# .header__contents__nav-list__right__login
-          -#   -if user_signed_in?
-          -#     .header__contents__nav-list__right__login
-          -#       %li.header__contents__nav-list__right__login__li
-          -#         =link_to 'ログアウト'destroy_user_session_path, method: "DELETE" do
-          -#     .header__contens__nav-list__right__new
-          -#         %li.header__contens__nav-list__right__new__li
-          -#           =link_to 'マイページ','#'(current_user[:id]) do
-                 -else
+                =link_to destroy_user_session_path, method: "DELETE" do
+                  ログアウト
+            
+            .header__contens__nav-list__right__new
+              %li.header__contens__nav-list__right__new__li
+                =link_to user_path(current_user[:id]) do
+                  マイページ     
+          -else
+            .header__contents__nav-list__right__login
+              %li.header__contents__nav-list__right__login__li
+                =link_to new_user_session_path do
+                  ログイン
+              
+            .header__contens__nav-list__right__new
+              %li.header__contens__nav-list__right__new__li
+                =link_to new_user_registration_path, method: :get do
+                  新規登録       
+
+
+
+
+
 -# .category__container
 -#   .category__container--top
 -#     %h3
