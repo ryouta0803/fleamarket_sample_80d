@@ -18,14 +18,14 @@
             %li.header__contents__nav-list__left__category__li
               =link_to "#", class: "categories" do
                 カテゴリー
-              -# = render partial: 'home/categories_drop'
+              -# = render partial: 'home/categories_drop'リンク先がないエラー解消のため
           .header__contents__nav-list__left__brand
             %li.header__contents__nav-list__left__brand__li
               =link_to "#" do
                 ブランド
-
       .header__contents__nav-list__right
         %ul
+          .header__contents__nav-list__right__login
           -if user_signed_in?
             .header__contents__nav-list__right__login
               %li.header__contents__nav-list__right__login__li
@@ -34,7 +34,9 @@
             
             .header__contens__nav-list__right__new
               %li.header__contens__nav-list__right__new__li
-                =link_to user_path(current_user[:id]) do
+                =link_to '#', method: :get, class: 'Button-show' do
+                  マイページ
+                -# =link_to user_path(current_user[:id]) doリンク先がないエラー解消のため
                   マイページ     
           -else
             .header__contents__nav-list__right__login
@@ -44,14 +46,14 @@
               
             .header__contens__nav-list__right__new
               %li.header__contens__nav-list__right__new__li
-                =link_to home_index_path do
+                =link_to new_user_registration_path, method: :get do
                   新規登録       
 
 
 
 
 
--# .category__container
+-# .category__containerリンク先がないエラー解消のため
 -#   .category__container--top
 -#     %h3
 -#       カテゴリー一覧
