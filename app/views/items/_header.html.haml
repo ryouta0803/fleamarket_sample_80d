@@ -26,15 +26,28 @@
 
       .header__contents__nav-list__right
         %ul
-          .header__contents__nav-list__right__login
-            %li.header__contents__nav-list__right__login__li
-              =link_to "#" do
-                ログイン
+          -if user_signed_in?
+            .header__contents__nav-list__right__login
+              %li.header__contents__nav-list__right__login__li
+                =link_to destroy_user_session_path, method: "DELETE" do
+                  ログアウト
+            
+            .header__contens__nav-list__right__new
+              %li.header__contens__nav-list__right__new__li
+                =link_to user_path(current_user[:id]) do
+                  マイページ     
+          -else
+            .header__contents__nav-list__right__login
+              %li.header__contents__nav-list__right__login__li
+                =link_to new_user_session_path do
+                  ログイン
               
-          .header__contens__nav-list__right__new
-            %li.header__contents__nav-list__right__new__li
-              =link_to "#" do
-                新規登録  
+            .header__contens__nav-list__right__new
+              %li.header__contens__nav-list__right__new__li
+                =link_to home_index_path do
+                  新規登録       
+
+
 
 
 
