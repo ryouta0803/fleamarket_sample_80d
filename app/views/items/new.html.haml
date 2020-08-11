@@ -14,7 +14,7 @@
               = message
 
   = f.hidden_field :trading_status, value: "販売中"
-  = f.hidden_field :user_id, value: current_user.id
+  -# = f.hidden_field :user_id, value: current_user.id
   .upload-box
     .upload-box__head
       %h3.upload-box__head__h3 出品画像
@@ -24,18 +24,18 @@
   #image-box
     #previews
       - if @item.persisted?
-        - @item.images.each_with_index do |image, i|
+        - @item.item_imgs.each_with_index do |image, i|
           = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-    = f.fields_for :images do |image|
+    = f.fields_for :item_imgs do |image|
       .js-file_group{"data-index": "#{image.index}"}
-        = image.file_field :src, class: 'js-file'
+        = image.file_field :image, class: 'js-file'
         %br/
         %span.js-remove 削除
       - if @item.persisted?
         = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
     - if @item.persisted?
-      .js-file_group{"data-index" => "#{@item.images.count}"}
-        = file_field_tag :src, name: "product[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+      .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+        = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
         .js-remove 削除
 
   %hr.content-sale--hr

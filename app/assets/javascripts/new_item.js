@@ -4,8 +4,8 @@ $(document).on('turbolinks:load', ()=> {
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
-                    name="item[images_attributes][${num}][src]"
-                    id="item_images_attributes_${num}_src"><br>
+                    name="item[item_imgs_attributes][${num}][src]"
+                    id="item_imgs_attributes_${num}_src"><br>
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;
