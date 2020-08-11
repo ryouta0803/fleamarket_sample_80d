@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @images = @item.item_imgs.build
+    @item.item_imgs.new
     @category = Category.where(ancestry: "").limit(13)
   end
 
@@ -18,9 +18,8 @@ class ItemsController < ApplicationController
     end
 
   def create
-    binding.pry
+    # binding.pry
     @item = Item.new(item_params)
-    @brand = Brand.new(brand_params)
     if @item.save
       redirect_to root_path
     else
@@ -48,10 +47,10 @@ class ItemsController < ApplicationController
     :name, :explain, :price, :status, 
     :postage, :prefecture,
     :shipping_date, :category_id, 
-    item_imgs_attributes: [:url, :_destroy, :id])
+    item_imgs_attributes: [:image, :_destroy, :id]).merge(:user_id => current_user.id)
   end
 
-  def  brand_params
-    params.require(:brand).permit(:name)
+  def set_item
+    @item = Item.includes(:item_imgs).find(params[:id])
   end
 end

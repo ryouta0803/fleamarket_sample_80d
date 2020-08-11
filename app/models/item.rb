@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-
+  # binding.pry
   validates :name, presence: true, length: {maximum: 40}
   validates :explain, presence: true, length: {maximum: 1000}
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300}
@@ -42,13 +42,9 @@ class Item < ApplicationRecord
   # コメント、お気に入り機能を実装したらコメントアウト外す。
   # has_many :comments, dependent: :destroy
   # has_many :likes, dependent: :destroy
-  belongs_to :brand
   belongs_to :buyer, optional: true
   belongs_to :category, optional: true
   belongs_to :user, foreign_key: 'user_id',optional:true 
   has_many :item_imgs,  dependent: :destroy
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 end
-
-
-

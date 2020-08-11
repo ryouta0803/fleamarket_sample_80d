@@ -34,7 +34,6 @@ $(document).ready(function(){
     console.log($('#parent_category'));
     $('#parent_category').on('change', function(){
       // 選択された親カテゴリーのidを取得
-      console.log("テスト")
       var parent_category_id = document.getElementById
       ('parent_category').value; 
       if (parent_category_id != "---"){ 
