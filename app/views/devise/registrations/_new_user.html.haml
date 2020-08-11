@@ -10,24 +10,20 @@
             = f.label :nick_name, "ニックネーム"
             %span.form-require 必須
             %br/
-            -# %input.input-default{:name => "nickname", :placeholder => "例) メルカリ太郎", :type => "text", :value => ""}/
             = f.text_field :nick_name, autofocus: true, placeholder: "例) 飯田っち"
           .form-group
             = f.label :email,"メールアドレス" 
             %span.form-require 必須
             %br/
-            -# %input.input-default{:name => "email", :placeholder => "PC・携帯どちらでも可", :type => "email", :value => ""}/
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
           .form-group
             = f.label :password
             %span.form-require 必須
             %br/
-            -# %input.input-default.has-error{"aria-autocomplete" => "list", "aria-describedby" => "password-error", "aria-invalid" => "true", :name => "password", :placeholder => "7文字以上の半角英数字", :type => "password"}/
             = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
           .form-group
             = f.label :password_confirmation
             %br/
-            -# %input.input-default.has-error{"aria-autocomplete" => "list", "aria-describedby" => "password-error", "aria-invalid" => "true", :name => "password", :placeholder => "7文字以上の半角英数字", :type => "password"}/
             = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
             %ul.has-error-text
               %li#password-error.has-error パスワードを入力してください
