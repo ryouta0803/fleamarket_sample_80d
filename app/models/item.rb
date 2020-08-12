@@ -9,6 +9,9 @@ class Item < ApplicationRecord
   validates :prefecture, presence: true
   validates :shipping_date, presence: true
 
+  validates_associated :item_imgs
+  validates :item_imgs, presence:true
+
   enum status: {
     "新品、未使用": 1,
     "未使用に近い": 2,
