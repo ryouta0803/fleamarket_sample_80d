@@ -18,21 +18,22 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-  resources :items do
-    resources :buyers, only: [:index] do
+  
+  resources :items do 
+    #Ajaxで動くアクションのルートを作成
+    resources :items, only: [:new, :show, :create, :edit, :update, :destroy] do
+
       collection do
-        get 'done', to: 'buyers#done'
-        post 'pay', to: 'buyers#pay'
+        get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+        get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+      end
+      
+      resources :buyers, only: [:index] do
+        collection do
+          get 'done', to: 'buyers#done'
+          post 'pay', to: 'buyers#pay'
+        end
       end
     end
   end
-  resources :items do 
-    #Ajaxで動くアクションのルートを作成
-    collection do
-      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
-      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
-    end
-  end
-
-  root "items#index"
 end
