@@ -13,35 +13,35 @@
             他のお客さまに公開されることはありません。
         .form-container
           .form-group
-            = f.label :first_name, "お名前・姓 (全角) "
+            = f.label :first_name, "姓 (全角) "
             %span.form-require 必須
             %br/
-            = f.text_field :first_name
+            = f.text_field :first_name, autofocus: true, placeholder: "例）児玉"
           .form-group
-            = f.label :last_name, "お名前・名 (全角) "
+            = f.label :last_name, "名 (全角) "
             %span.form-require 必須
             %br/
-            = f.text_field :last_name
+            = f.text_field :last_name, autofocus: true, placeholder: "例）亮太"
           .form-group
             = f.label :first_name_kana, "姓 (フリガナ) "
             %span.form-require 必須
             %br/
-            = f.text_field :first_name_kana
+            = f.text_field :first_name_kana, autofocus: true, placeholder: "例）コダマ"
           .form-group
             = f.label :last_name_kana, "名 (フリガナ) "
             %span.form-require 必須
             %br/
-            = f.text_field :last_name_kana
+            = f.text_field :last_name_kana, autofocus: true, placeholder: "例）リョウタ"
           .form-group
             = f.label :phone_no, "☎︎ 電話番号"
             %span.form-require
             %br/
-            = f.text_field :phone_no
+            = f.text_field :phone_no, autofocus: true
           .form-group
             = f.label :postal_code, "〒 郵便番号"
             %span.form-require 必須
             %br/
-            = f.text_field :postal_code
+            = f.text_field :postal_code, autofocus: true
           .form-group
             = f.label :prefecture, "都道府県"
             %span.form-require 必須
