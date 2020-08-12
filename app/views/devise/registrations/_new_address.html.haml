@@ -1,0 +1,67 @@
+.Single__container__main
+  .Single__container__main__head
+    %h2.member_new 会員情報入力
+  .Single__container__main__inner
+    .Single__container__main__inner__content
+      = form_for @address do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .form-text
+          %h3.text-left.l-chapter-sub-head ※ 本人確認
+          %p.l-single-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。
+            %br/
+            他のお客さまに公開されることはありません。
+        .form-container
+          .form-group
+            = f.label :first_name, "姓 (全角) "
+            %span.form-require 必須
+            %br/
+            = f.text_field :first_name, autofocus: true, placeholder: "例）児玉"
+          .form-group
+            = f.label :last_name, "名 (全角) "
+            %span.form-require 必須
+            %br/
+            = f.text_field :last_name, autofocus: true, placeholder: "例）亮太"
+          .form-group
+            = f.label :first_name_kana, "姓 (フリガナ) "
+            %span.form-require 必須
+            %br/
+            = f.text_field :first_name_kana, autofocus: true, placeholder: "例）コダマ"
+          .form-group
+            = f.label :last_name_kana, "名 (フリガナ) "
+            %span.form-require 必須
+            %br/
+            = f.text_field :last_name_kana, autofocus: true, placeholder: "例）リョウタ"
+          .form-group
+            = f.label :phone_no, "☎︎ 電話番号"
+            %span.form-require
+            %br/
+            = f.text_field :phone_no, autofocus: true
+          .form-group
+            = f.label :postal_code, "〒 郵便番号"
+            %span.form-require 必須
+            %br/
+            = f.text_field :postal_code, autofocus: true
+          .form-group
+            = f.label :prefecture, "都道府県"
+            %span.form-require 必須
+            %br/
+            = f.text_field :prefecture
+          .form-group
+            = f.label :city, "市・区・町・村"
+            %span.form-require 必須
+            %br/
+            = f.text_field :city
+          .form-group
+            = f.label :address, "番地"
+            %span.form-require 必須
+            %br/
+            = f.text_field :address
+          .form-group
+            = f.label :apartment, "建物名・部屋番号"
+            %span.form-require
+            %br/
+            = f.text_field :apartment
+          .actions
+            = f.submit "登録"
+        = render "devise/shared/links"

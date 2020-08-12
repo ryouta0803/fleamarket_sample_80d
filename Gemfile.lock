@@ -126,8 +126,6 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    faker (2.13.0)
-      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     fog-aws (3.6.6)
       fog-core (~> 2.1)
@@ -381,7 +379,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
-  faker (~> 2.8)
   fog-aws
   font-awesome-sass
   gretel

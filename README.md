@@ -21,7 +21,7 @@ Things you may want to cover:
 - has_one :addresses
 - has_one :credit_card
 
-## Itemsテーブル
+## Image_itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -38,7 +38,7 @@ Things you may want to cover:
 ### Association
 - has_many :likes
 - has_many :comments
-- has_many :images
+- has_many :item_imgs
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
@@ -102,7 +102,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## Imagesテーブル
+## Item_imgsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -120,4 +120,3 @@ Things you may want to cover:
 - has_many :items
 
 * ...
-test
