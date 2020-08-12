@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def get_category_children  
     @category_children = Category.find(params[:parent_id]).children 
     end
- 
+
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
     end
@@ -43,6 +43,17 @@ class ItemsController < ApplicationController
   def destory
   end
 
+  require 'payjp'
+
+  def purchase
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+    Payjp::Charge.create(
+      amount: 809, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+  end
+
   private
 
   def item_params
@@ -52,6 +63,8 @@ class ItemsController < ApplicationController
     :shipping_date, :category_id, 
     item_imgs_attributes: [:image, :_destroy, :id]).merge(:user_id => current_user.id)
   end
+
+  
 
   def set_item
     @item = Item.includes(:item_imgs).find(params[:id])
