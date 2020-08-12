@@ -18,6 +18,7 @@ class BuyersController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
+      
       :amount => @item.price, #支払金額を引っ張ってくる
       :customer => @card.customer_id,  #顧客ID
       :currency => 'jpy',              #日本円
@@ -26,6 +27,8 @@ class BuyersController < ApplicationController
   end
 
   def done
+    @item_buyer= Item.find(params[:id]) #購入ボタンを押したら購入者のIDが商品に登録される
+    @item_buyer.update( buyer_id: current_user.id)
   end
 
   private
