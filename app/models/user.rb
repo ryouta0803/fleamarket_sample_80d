@@ -10,5 +10,5 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }
   validates :birth_day, presence: true
   has_one :address
-
+  has_one :credit_card
 end 
