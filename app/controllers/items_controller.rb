@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show]
+
   def index
     @items = Item.all
   end
@@ -30,7 +32,6 @@ class ItemsController < ApplicationController
     @grandchild = Category.find(@items.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
-    @items = Item.find(params[:id])
   end
 
   def edit
@@ -54,5 +55,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.includes(:item_imgs).find(params[:id])
+    @items = Item.find(params[:id])
   end
 end
