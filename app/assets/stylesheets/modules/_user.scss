@@ -119,6 +119,224 @@
     font-size: 13px;
   }
 }
-.year,.month,.day{
-  font-size: 30px;
- }
+
+.Wrapper{
+
+  background-color: whitesmoke;
+}
+
+.Header {
+  height: 128px;
+  background-color: rgb(245, 245, 245);
+  &__logo {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    height: 56px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 50px;
+    .header-logo-img{
+      height: 49px;
+      width: 185px;
+    }
+  }
+}
+
+.Single{
+  display: block;
+
+  &__container {
+    box-sizing: inherit;
+
+    &__main__header {
+      height: 128px;
+      border-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000000;
+
+      h1 {
+        height: 50px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &__main {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: whitesmoke;
+
+      &__head {
+        height: 100px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: 0px, 50px;
+        
+      }
+
+      .member_new {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        font-weight: 600;
+        color: #333333;
+
+      }
+
+      &__inner {
+        width: 50%;
+        height: 100%;
+        margin-top: 2px;
+        background-color: white;
+
+        &__content {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .form-text {
+            font-size: 15px;
+            margin-bottom: 30px;
+          }
+
+          .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 15px;
+
+            .form-group {
+              width: 350px;
+              margin: 15px;
+            }
+
+            label {
+              font-weight: 600;
+              color: #333333;
+            }
+
+            span {
+              margin-left: 8px;
+              font-size: 12px;
+              padding: 0 4px;
+              border-radius: 2px;
+              display: inline-block;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.4em;
+              background-color: red;
+              color: white;
+            }
+
+            input[type="text"]{
+              width: 300px;
+              height: 35px;
+              margin-top: 6px;
+            }
+
+            input[type="email"]{
+              width: 300px;
+              height: 35px;
+              margin-top: 6px;
+            }
+
+            input[type="password"]{
+              width: 300px;
+              height: 35px;
+              margin-top: 6px;
+            }
+
+            .has-error-text {
+              font-size: 15px;
+              margin-top: 5px;
+            }
+
+            .form-info-text {
+              font-size: 15px;
+            }
+
+            .form-password-revelation-toggle {
+              height: 15px;
+            }
+  
+            .actions {
+              padding: 15px;
+              
+            }
+
+            .formField__label--normal {
+              font-size: 17px;
+              text-align: left;
+              select {
+                width: 80px;
+                height: 40px;
+                text-align: right;
+              }
+            }
+
+            input[type="submit"] {
+              width: 150px;
+              height: 40px;
+              margin: 30px;
+              background-color: red;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.pur-footer{
+  margin-top: auto;
+  text-align: center;
+  padding: 40px 0px 11px;
+  &__nav {
+    vertical-align: baseline;
+    margin: 0px;
+    padding: 0px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    font: inherit;
+    
+      &__ul  {
+        position: relative;
+        min-height: 100%;
+        color: #333333;
+        background-color: whitesmoke;
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        font-size: 14px;
+        display: inline-flex;
+        padding-bottom: 50px;
+        .pur-footer__nav__ul__a {
+          padding: 20px;
+
+          text-decoration: none;
+          color: black;
+        }
+
+      }
+    }
+  .footer-log-img {
+    height: 65px;
+    margin-bottom: 8px;
+    width: 80px;
+    opacity: 0.7;
+  }
+}
