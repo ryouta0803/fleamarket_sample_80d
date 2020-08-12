@@ -1,6 +1,17 @@
----
 ja:
   activerecord:
+    models:
+    attributes:
+      item:
+        item_imgs: 出品画像
+        name: 商品名
+        explain: 商品の説明
+        category: カテゴリー
+        status: 商品の状態
+        postage: 配送料の負担
+        prefecture: 配送元の地域
+        shipping_date: 発送までの日数
+        price: 販売価格
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
