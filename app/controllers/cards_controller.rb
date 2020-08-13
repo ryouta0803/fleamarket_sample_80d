@@ -2,7 +2,7 @@ class CardsController < ApplicationController
 
   def new
     card = Card.where(user_id: current_user.id)
-    redirect_to root_path(current_user.id) if card.exists?
+    redirect_to card_path(current_user.id) if card.exists?
   end
 
 
