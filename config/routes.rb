@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # get 'buyers/index'
-  # get 'buyers/done'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -8,11 +6,11 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+  
+  root 'items#index'
 
   resources :users, only: :show
 
-  resources :items
-  root 'items#index'
   # resources :users, only: [:edit, :update]
   resources :cards, only: [:new, :show, :destroy] do
     collection do
@@ -21,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :items do 
+  resources :items
     #Ajaxで動くアクションのルートを作成
     resources :items, only: [:new, :show, :create, :edit, :update, :destroy] do
 
@@ -38,4 +36,3 @@ Rails.application.routes.draw do
       end
     end
   end
-end

@@ -48,3 +48,7 @@
       -#   = f.submit "購入する" class: "buy buy-button"
       = form_tag(action: :pay, method: :post) do
         %button.buy-button{type:"submit"} 購入する
+
+= form_with url: purchase_cards_path do
+  :plain
+  %script.payjp-button{"data-key": "pk_test_dcf452122f7674ded7a3a83d", src: "https://checkout.pay.jp", type: "text/javascript"}
