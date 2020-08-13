@@ -7,8 +7,14 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :items
+  resources :items do
     # resources :comments 準備のみ
-  root 'items#index'
-  # resources :users, only: [:edit, :update]
+    #Ajaxで動くアクションのルートを作成
+    collection do
+      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
+  root "items#index"
 end

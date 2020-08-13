@@ -15,7 +15,7 @@ require 'rails_helper'
       it "first_nameが全角以外では登録できないこと" do
         address = build(:address, first_name: nil)
         address.valid?
-        expect(address.errors[:first_name]).to include("全角で入力してくだい")
+        expect(address.errors[:first_name]).to include("を全角で入力してくだい")
       end
 
       it "last_nameが空では登録できないこと" do
@@ -27,7 +27,7 @@ require 'rails_helper'
       it "last_nameが全角以外では登録できないこと" do
         address = build(:address, last_name: nil)
         address.valid?
-        expect(address.errors[:last_name]).to include("全角で入力してくだい")
+        expect(address.errors[:last_name]).to include("を全角で入力してくだい")
       end
 
       it "first_name_kanaが空では登録できないこと" do
@@ -39,7 +39,7 @@ require 'rails_helper'
       it "first_name_kanaが全角以外では登録できないこと" do
         address = build(:address, first_name_kana: nil)
         address.valid?
-        expect(address.errors[:first_name_kana]).to include("全角ひらがな、カタカナで入力してくだい")
+        expect(address.errors[:first_name_kana]).to include("を全角ひらがな、カタカナで入力してくだい")
       end
       it "last_name_kanaが空では登録できないこと" do
         address = build(:address, last_name_kana: nil)
@@ -49,7 +49,7 @@ require 'rails_helper'
       it "last_name_kanaが全角以外では登録できないこと" do
         address = build(:address, last_name_kana: nil)
         address.valid?
-        expect(address.errors[:last_name_kana]).to include("全角ひらがな、カタカナで入力してくだい")
+        expect(address.errors[:last_name_kana]).to include("を全角ひらがな、カタカナで入力してくだい")
       end
       it "postal_codeが空では登録できないこと" do
         address = build(:address, postal_code: nil)
