@@ -73,7 +73,7 @@ a{
         display: flex;  
         &__brand{
           &__li{
-            padding: 0 0 0 16px;
+            padding: 0 0 0 38px;
           }
         }   
       }
@@ -82,6 +82,11 @@ a{
         display: flex;
       }
       &__right{
+        &__new{
+          &__li{
+            padding: 0 0 0 16px;
+          }
+        }
         margin-left: auto;
         display: flex;
       }
@@ -130,6 +135,7 @@ a{
         &__btn{
           display: flex;
           margin: 24px 0 0 0;
+          
           a{
             margin-right: 10px;
           }
@@ -154,6 +160,7 @@ a{
 
   &__title{
     font-size: 26px;
+    color: black;
     line-height: 1.4;
     font-weight: bold;
     margin-bottom: 25px;
@@ -593,5 +600,23 @@ background-color: #fff;
 .top-main__contents__item-box__image{
   background: white;
   margin: 10px;
+}
+
+.purchase__btn{
+  width: 120px;
+    background: #3CCACE;
+    text-align: center;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
+  .purchaseBtn__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
 }
 
