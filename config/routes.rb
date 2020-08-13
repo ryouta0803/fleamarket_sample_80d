@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users, only: :show
   # get 'buyers/index'
   # get 'buyers/done'
   devise_for :users, controllers: {
@@ -9,13 +8,16 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  
+
+  resources :users, only: :show
+
   resources :items
   root 'items#index'
   # resources :users, only: [:edit, :update]
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
+      post 'purchase', to: 'items#purchase'
     end
   end
   

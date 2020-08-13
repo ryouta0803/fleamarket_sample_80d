@@ -64,8 +64,6 @@ class ItemsController < ApplicationController
     item_imgs_attributes: [:image, :_destroy, :id]).merge(:user_id => current_user.id)
   end
 
-  
-
   def set_item
     @item = Item.includes(:item_imgs).find(params[:id])
   end
