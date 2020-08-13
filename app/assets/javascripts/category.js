@@ -6,13 +6,14 @@ $(document).ready(function(){
     }
     // 子カテゴリーを表示させる。
     function appendChidrenBox(insertHTML){
+      
       var childSelectHtml = '';
       childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'children_wrapper'>
                           <div class='exhibitionPage__main__contents__detail__category__choose1'>
                             <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="item[category_id]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
-                            <select>
+                            </select>
                           </div>
                         </div>`;
       $('.exhibitionPage__main__contents__detail__category__choose').append(childSelectHtml);
