@@ -8,22 +8,23 @@
       .images
         .display
           %ul.display__up
-            -# - @item.item_images.each do |item_image|
-            -# テスト
             %li.display__up__slide-image
-              = image_tag 'test.jpeg', size: "300x300"
-              -# = image_tag item_image.image_url, size: "300x300"
+              - @item.item_imgs.first(1).each do |item_image|
+                = image_tag "#{item_image.image}", size: "300x300"
+              
+              -# = image_tag 'test.jpeg', size: "300x300"
           %ul.display__down
             %li.display__down__thumbnail-image
-              = image_tag 'test.jpeg', size: "60x60"
-            %li.display__down__thumbnail-image
-              = image_tag 'test.jpeg', size: "60x60"
-            %li.display__down__thumbnail-image
-              = image_tag 'test.jpeg', size: "60x60"
+              - @item.item_imgs.each do |item_img|
+                = image_tag "#{item_img.image}", size: "60x60"
+            
+            -# %li.display__down__thumbnail-image
+            -#   = image_tag 'test.jpeg', size: "60x60"
+            -# %li.display__down__thumbnail-image
+            -#   = image_tag 'test.jpeg', size: "60x60"
+            -# %li.display__down__thumbnail-image
+            -#   = image_tag 'test.jpeg', size: "60x60"
 
-            -# - @item.item_imgs.each do |item_img|
-            -#   %li.display__down__thumbnail-image
-            -#     = image_tag item_img.image, size: "60x60"
 
       %table.detail
         %tbody
@@ -46,20 +47,20 @@
               = link_to "#" do
                 .category
                   %span
-                    バッグ
-                    -# = @category_name 準備のみ
+                    -# バッグ
+                    = @grandchild.name
               = link_to "#" do
                 .category
                   %i.fas.fa-chevron-right
                     %span
-                      ばっぐばっぐ
-                      -# = @category_name 準備のみ
+                      -# ばっぐばっぐ
+                      = @child.name
               = link_to "#" do
                 .category
                   %i.fas.fa-chevron-right
                     %span
-                      ばっぐばっぐばっぐ
-                      -# = @category_name 準備のみ
+                      -# ばっぐばっぐばっぐ
+                      = @parent.name
           %tr
             %th
               ブランド
