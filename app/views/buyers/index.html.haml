@@ -1,58 +1,58 @@
 .header
   .header__logo
     =image_tag("logo.png", size: "220x70")
-    
-.buy
-  .buy-content
-    .buy-content__title
-      購入内容の確認
 
-    .buy-content__item
-      .buy-image
-        %img{alt: "桜島", src: "/assets/桜島.jpeg"}/
-      .buy-details
-        .buy-details__item-name
-          %span 商品名:桜島
-          %p.buy-price
-            10,000
-            %span.shopping-free (税込)送料込み
+.body
+  .buy
+    .buy-content
+      .buy-content__title
+        購入内容の確認
+      .buy-content__main
+        .buy-image
+          %img{alt: "桜島", src: "/assets/桜島.jpeg"}/
+        .buy-details
+          .buy-details__item-name
+            %span 商品名 : 桜島
+          .buy-details__item-price
+            ¥
+            %span.main__shopping-free 10,000
 
-      .buy-content__price
-        .price__price__left
-          お支払い金額
-        .price__price__right
-          110,000,000
-          %span.shopping-free (税込)送料込み
-          
-      .buy-content__user-info
-        .buy-content__user-info__inner
-          %h3 お支払い方法
-          .inner-credit
-            .inner-credit__brand
-              %figure
-                %img{alt: "桜島", src: "/assets/visaカード.jpeg"}/
-            .inner-credit__number
-              1111 1111 1111 
-            .inner-credit__expiration
-              .inner-credit__expiration__title
-                有効期限
-              .inner-credit__expiration__date
-                11 / 21
-
-        .buy-content__adress
-          .adress-post
-            %h3 配送先
-          .adress-info
-            住所 111-2222
-            %br
-            %p 東京都
-            %p 千代田区
-            %p 丸の内
-            %p 1番地
+    .price
+      .price__left
+        お支払い金額
+      .price__right
+        ¥
+        %span.price__shopping-free 10,000
             
-            .adress-info__name
-              氏名
-              %p マッスル
-              %p 飯田 様
-      .buy-content__submit
-        %input{type: "submit", value: "送信する"}/
+    .user-info
+      .user-info__inner
+        お支払い方法
+      .inner-credit
+        .inner-credit__brand
+          %figure
+            %img{alt: "visa", src: "/assets/visaカード.png"}/
+         
+        .card
+          .card__title
+            クレジットカード
+          .card__number
+            1111 1111 1111 
+          .card__limit
+            有効期限
+          .card__date
+            11 / 21
+
+    .adress
+      .adress__post
+        配送先
+      .adress__info
+        住所 111-2222
+        %p 東京都 千代田区 丸の内 1-1-1
+        
+      .adress__name
+        %p 氏名  
+        %p 田中 太郎 様
+
+    .purchase
+      .submit
+      %input{type: "submit", value: "購入する", class: "buy-button"}/
