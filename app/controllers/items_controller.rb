@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  # before_action :move_to_index, only: [:show]
   before_action :set_item, only: [:show]
 
   def index
@@ -29,7 +30,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @grandchild = Category.find(@items.category_id)
+    # @comment = Comment.new 準備のみ
+    # @comments = @item.comments.includes(:user) 準備のみ
+    @grandchild = @item.category
     @child = @grandchild.parent
     @parent = @child.parent
   end
@@ -56,4 +59,8 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.includes(:item_imgs).find(params[:id])
   end
+
+  # def move_to_index
+  #   redirect_to root_path unless user_signed_in?
+  # end
 end

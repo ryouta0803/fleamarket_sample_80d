@@ -1,27 +1,28 @@
+= render "header"
+
 .home
   .item
     %h1.name
-      バッグ
+      = @item.name
     .main
       .images
         .display
           %ul.display__up
             %li.display__up__slide-image
-              = image_tag 'test.jpeg', size: "300x300"
+              - @item.item_imgs.first(1).each do |item_image|
+                = image_tag "#{item_image.image}", size: "300x300"
           %ul.display__down
             %li.display__down__thumbnail-image
-              = image_tag 'test.jpeg', size: "60x60"
-            %li.display__down__thumbnail-image
-              = image_tag 'test.jpeg', size: "60x60"
-            %li.display__down__thumbnail-image
-              = image_tag 'test.jpeg', size: "60x60"
+              - @item.item_imgs.each do |item_img|
+                = image_tag "#{item_img.image}", size: "60x60"
+
       %table.detail
         %tbody
           %tr
             %th
               出品者
             %td
-              いいだー
+              = link_to @item.user.nick_name, "#"
               %div.evaluation
                 %div
                   %i.fas.fa-laugh
@@ -33,57 +34,70 @@
             %th
               カテゴリー
             %td.category
-              = link_to "" do
+              = link_to "#" do
                 .category
                   %span
-                    バッグ
-              = link_to "" do
+                    = @grandchild.name
+              = link_to "#" do
                 .category
                   %i.fas.fa-chevron-right
                     %span
-                      ばっぐばっぐ
-              = link_to "" do
+                      = @child.name
+              = link_to "#" do
                 .category
                   %i.fas.fa-chevron-right
                     %span
-                      ばっぐばっぐばっぐ
+                      = @parent.name
           %tr
             %th
               ブランド
             %td
-              Dチーム
+              = @item.brand
           %tr
             %th
               商品の状態
             %td
-              良い
+              = @item.status
           %tr
             %th
               配送料の負担
             %td
-              出品者は負担
+              = @item.postage
           %tr
             %th
               配送元地域
             %td
-              うちゅう
+              = @item.prefecture
           %tr
             %th
               発送日の目安
             %td
-              3日くらい
+              = @item.shipping_date
     .price
       %span.price__amount
         ¥
-        30000
+        = @item.price
       %span.price__tax
         (税込)
       %span.price__postage-included
         送料込み
     .message
-      = link_to "購入画面に進む", "#", class: "item__purchase-screen-button"
+      -if user_signed_in? && current_user.id == @item.user_id
+        = link_to "商品の編集", "#", class: "submit-btn submit-btn--red"
+        %p
+          or
+        = link_to "出品を再開する","", class: "submit-btn submit-btn--red"
+        = link_to "この商品を削除する", item_path, class: "submit-btn submit-btn--gray", method: "DELETE"
+      - elsif @item.sale_status == 1
+        = link_to "購入画面に進む", "#", class: "item__purchase-screen-button"
+      - elsif @item.sale_status == 2
+        = link_to "この商品は公開停止中です", "", class: "submit-btn submit-btn--gray"
+      - else
+        = link_to "この商品の取引は完了しました", "", class: "submit-btn submit-btn--gray"
+
     .description
-      これはとても良い商品です！
+      %p.description__inner
+        = simple_format @item.explain
     .buttons
       .buttons__left
         %button.buttons__left__heart
@@ -130,7 +144,7 @@
   .other-items
     .login-user
       %h2.title
-        = link_to "いいださんのその他の出品", "#"
+        = link_to "#{@item.user.nick_name}さんのその他の出品", ""
       .content
         .item-box
           %figure.image
@@ -138,34 +152,6 @@
           .body
             %h3.body__name
               バッグ100
-            .body__num
-              .body__num__price
-                ¥
-                5000
-              .body__num__heart
-                %i.far.fa-heart
-                %span
-                  = rand(1000)
-        .item-box
-          %figure.image
-            = image_tag "test2.jpg", size:"220x220"
-          .body
-            %h3.body__name
-              バッグ200
-            .body__num
-              .body__num__price
-                ¥
-                5000
-              .body__num__heart
-                %i.far.fa-heart
-                %span
-                  = rand(1000)
-        .item-box
-          %figure.image
-            = image_tag "test2.jpg", size:"220x220"
-          .body
-            %h3.body__name
-              バッグ300
             .body__num
               .body__num__price
                 ¥
@@ -189,23 +175,5 @@
               .body__num__price
                 ¥
                 6000
-        .item-box
-          %figure.image
-            = image_tag "test3.jpg", size: "220x220"
-          .body
-            %h3.body__name
-              ポーチ2
-            .body__num
-              .body__num__price
-                ¥
-                6000
-        .item-box
-          %figure.image
-            = image_tag "test3.jpg", size: "220x220"
-          .body
-            %h3.body__name
-              ポーチ3
-            .body__num
-              .body__num__price
-                ¥
-                6000
+
+= render "footer"

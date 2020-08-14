@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  
-  resources :items do 
+
+  resources :items do
+    # resources :comments 準備のみ
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
