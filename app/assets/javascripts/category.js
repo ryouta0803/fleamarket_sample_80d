@@ -46,14 +46,16 @@ $(document).ready(function(){
         })
         .done(function(children){         
           // 親カテゴリー削除された時、子・孫カテゴリーを削除する。
+          console.log(children)
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
-          
+
           var insertHTML = '';
           children.forEach(function(child){
             insertHTML += appendOption(child);
           });
           appendChidrenBox(insertHTML);
+          console.log(insertHTML)
         })
         // エラー警告
         .fail(function(){
@@ -97,4 +99,4 @@ $(document).ready(function(){
       }
     });
   });
-});
+}); 
