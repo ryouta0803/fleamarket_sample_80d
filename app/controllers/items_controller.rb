@@ -54,6 +54,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.includes(:item_imgs).find(params[:id])
+　　@item = Item.includes(:item_imgs).find(params[:id])
   end
 end

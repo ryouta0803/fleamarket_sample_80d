@@ -18,7 +18,7 @@
             %li.header__contents__nav-list__left__category__li
               =link_to category_get_category_children_items_path(@items), class: "categories" do
                 カテゴリー
-              -# = render partial: 'home/categories_drop'
+              -# = render partial: 'home/categories_drop'カテゴリ未設定によりエラー表示を防ぐため
           .header__contents__nav-list__left__brand
             %li.header__contents__nav-list__left__brand__li
               =link_to "#" do
@@ -37,8 +37,8 @@
 
                 =link_to '#', method: :get, class: 'Button-show' do
                   マイページ
-                =link_to user_path(current_user[:id]) do
-                  マイページ     
+                -# =link_to user_path(current_user[:id]) do 未然エラー防止
+                -#   マイページ     
           -else
             .header__contents__nav-list__right__login
               %li.header__contents__nav-list__right__login__li
@@ -54,7 +54,7 @@
 
 
 
--# .category__containerリンク先がないエラー解消のため
+-# .category__container  カテゴリ未設定によりエラー表示を防ぐため
 -#   .category__container--top
 -#     %h3
 -#       カテゴリー一覧
