@@ -9,7 +9,7 @@
         購入内容の確認
       .buy-content__main
         .buy-image
-          %img{alt: "桜島", src: "/assets/桜島.jpeg"}/
+          =image_tag("桜島.jpeg")
         .buy-details
           .buy-details__item-name
             %span 商品名 : 桜島
@@ -30,8 +30,7 @@
       .inner-credit
         .inner-credit__brand
           %figure
-            %img{alt: "visa", src: "/assets/visaカード.png"}/
-         
+            =image_tag("visaカード.png")
         .card
           .card__title
             クレジットカード
