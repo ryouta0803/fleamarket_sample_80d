@@ -11,20 +11,10 @@
             %li.display__up__slide-image
               - @item.item_imgs.first(1).each do |item_image|
                 = image_tag "#{item_image.image}", size: "300x300"
-              
-              -# = image_tag 'test.jpeg', size: "300x300"
           %ul.display__down
             %li.display__down__thumbnail-image
               - @item.item_imgs.each do |item_img|
                 = image_tag "#{item_img.image}", size: "60x60"
-            
-            -# %li.display__down__thumbnail-image
-            -#   = image_tag 'test.jpeg', size: "60x60"
-            -# %li.display__down__thumbnail-image
-            -#   = image_tag 'test.jpeg', size: "60x60"
-            -# %li.display__down__thumbnail-image
-            -#   = image_tag 'test.jpeg', size: "60x60"
-
 
       %table.detail
         %tbody
@@ -156,25 +146,6 @@
       %h2.title
         = link_to "#{@item.user.nick_name}さんのその他の出品", ""
       .content
-        -# - @item.user.items.where(sale_status: "出品中").each do |item|
-        -# .item-box
-        -#   = link_to "/items/#{item.id}", class:"other-items__login-user__items__item__link"
-        -#   %figure.image
-        -#     = image_tag "test2.jpg", size:"220x220"
-        -#     -# = image_tag item.item_images.find_by(item_id: item.id).image_url, size:"220x220"
-        -#   .body
-        -#     %h3.body__name
-        -#       -# バッグ100
-        -#       = item.name
-        -#     .body__num
-        -#       .body__num__price
-        -#         ¥
-        -#         -# 5000
-        -#         = item.price
-        -#       .body__num__heart
-        -#         %i.far.fa-heart
-        -#         %span
-        -#           = rand(1000)
         .item-box
           %figure.image
             = image_tag "test2.jpg", size:"220x220"
@@ -194,21 +165,6 @@
       %h2.title
         = link_to "その他の商品", "#"
       .content
-        -# - @items.each do |item|
-        -# .item-box
-        -#   = link_to item_path(item.id), class:".other-items__same-category__items__item__link" do
-        -#   %figure.image
-        -#     = image_tag "test3.jpg", size: "220x220"
-        -#     -# = image_tag src= item.item_images.first.image_url, size: "220x220"
-        -#   .body
-        -#     %h3.body__name
-        -#       ポーチ1
-        -#       = item.name
-        -#     .body__num
-        -#       .body__num__price
-        -#         ¥
-        -#         6000
-        -#         = item.price
         .item-box
           %figure.image
             = image_tag "test3.jpg", size: "220x220"
