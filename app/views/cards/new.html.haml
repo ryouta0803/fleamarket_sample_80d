@@ -1,4 +1,7 @@
-= form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+.header
+  %h2.card_title
+  クレジットカード情報入力
+= form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm", ) do
   %label カード番号
   .require 必須
   = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
