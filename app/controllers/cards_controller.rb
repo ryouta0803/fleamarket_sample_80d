@@ -1,11 +1,11 @@
 class CardsController < ApplicationController
 
+  require "payjp"
+
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if card.exists?
   end
-
-
 
   def pay #payjpとCardのデータベース作成
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
@@ -20,8 +20,10 @@ class CardsController < ApplicationController
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to card_path(current_user.id)
+        flash[:notice] = 'クレジットカードの登録が完了しました'
       else
         redirect_to pay_cards_path
+        flash[:alert] = 'クレジットカード登録に失敗しました'
       end
     end
   end

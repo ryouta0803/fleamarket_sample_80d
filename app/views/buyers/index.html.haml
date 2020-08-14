@@ -4,7 +4,7 @@
   .buy-content__item__inner
     .buy-item-main
       .buy-item-image
-        -# = image_tag "#{@item.images[0].url}", size: '64x64', class: 'buydetails-contet__image'
+        = image_tag "#{@item.item_imgs[0].image.url}", size: '64x64', class: 'buydetails-contet__image'
       .buy-item-detail
         .buy-item-name
           = @item.name
@@ -44,11 +44,5 @@
       大阪府大阪市北区〇〇1-11
       %br
       山田太郎
-      -# = form_with url: pay_item_buyers_path, method: :post do |f|
-      -#   = f.submit "購入する" class: "buy buy-button"
       = form_tag(action: :pay, method: :post) do
         %button.buy-button{type:"submit"} 購入する
-
-= form_with url: purchase_cards_path do
-  :plain
-  %script.payjp-button{"data-key": "pk_test_dcf452122f7674ded7a3a83d", src: "https://checkout.pay.jp", type: "text/javascript"}
