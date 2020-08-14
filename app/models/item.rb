@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  # binding.pry
   validates :name, presence: true
   validates :explain, presence: true
   validates :price, presence: true
