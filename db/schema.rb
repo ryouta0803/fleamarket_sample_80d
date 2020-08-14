@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2020_08_12_037815) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "explain", null: false
-    t.string "status", null: false
+    t.integer "status", null: false
     t.integer "postage", null: false
-    t.string "prefecture", null: false
-    t.string "shipping_date", null: false
+    t.integer "prefecture", null: false
+    t.integer "shipping_date", null: false
     t.string "sale_status", default: "1", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
