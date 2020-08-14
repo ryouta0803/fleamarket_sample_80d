@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, only: [:show]
+  # before_action :move_to_index, only: [:show]
   before_action :set_item, only: [:show]
 
   def index
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
     @item = Item.includes(:item_imgs).find(params[:id])
   end
 
-  def move_to_index
-    redirect_to root_path unless user_signed_in?
-  end
+  # def move_to_index
+  #   redirect_to root_path unless user_signed_in?
+  # end
 end
