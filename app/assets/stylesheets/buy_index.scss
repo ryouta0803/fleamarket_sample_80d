@@ -1,0 +1,132 @@
+$main-color: #f8f8f8;
+$main-background: #EEEEEE;
+$border-top: 1px solid #AAFFFF;
+
+.header {
+  height: 130px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__logo {
+
+  }
+}
+
+.body{
+  background-color: $main-background;
+  .buy {
+    max-width: 375px;
+    margin: 0 auto;
+    background-color: $main_color;
+    .buy-content {
+      background-color: $main_color;
+      &__title {
+        text-align: center;
+        padding: 32px 16px;
+        background-color:$main_color;
+        font-size: 25px;
+        font-weight: bold;
+      }
+      &__main {
+        text-align: center;
+        img {
+          border-radius: 30px;
+        }
+        .buy-details {
+          display: flex;
+          justify-content: space-between;
+          padding: 32px 16px;
+          &__item-name {
+            font-size: 20px;
+            font-weight: 400;
+          }
+          &__item-price {
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 24px; 
+          }
+          .main__shopping-free{
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .price {
+      display: flex;
+      justify-content: space-between;
+      background-color: $main_color;
+      padding: 32px 16px;
+      border-top: $border-top;
+
+      &__left {
+        font-size: 20px;
+        font-weight: 400;
+
+      }
+      &__right {
+        font-weight: 600;
+        font-size: 24px;
+      }
+    }
+    .user-info {
+      background-color: $main_color;
+      padding: 32px 16px;
+      border-top: $border-top;
+      &__inner {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+      .inner-credit {
+        
+        &__brand {
+          img {
+            height: 30px;
+          }
+        }
+        .card {
+          &__title {
+            font-weight: bold;
+          }
+          &__limit {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .adress {
+      background-color: $main_color;
+      padding: 32px 16px;
+      border-top: $border-top;
+      &__post {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      &__name {
+        margin-top :15px;
+      }
+    }
+    .purchase {
+      background-color: $main_color;
+      padding: 32px 16px;
+      border-top: $border-top;
+      .buy-button {
+        display: block;
+        background-color: red;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 60px;
+        color: white;
+        width: 100%;
+      }
+      .submit {
+        width: 100vw;
+      }
+    }
+  }
+}

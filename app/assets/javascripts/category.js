@@ -5,7 +5,7 @@ $(document).ready(function(){
       return html;
     }
     // 子カテゴリーを表示させる。
-    function appendChidrenBox(insertHTML){
+    function appendChildrenBox(insertHTML){
       var childSelectHtml = '';
       childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'children_wrapper'>
                           <div class='exhibitionPage__main__contents__detail__category__choose1'>
@@ -18,7 +18,7 @@ $(document).ready(function(){
       $('.exhibitionPage__main__contents__detail__category__choose').append(childSelectHtml);
     }
     // 孫カテゴリーを表示させる。
-    function appendGrandchidrenBox(insertHTML){
+    function appendGrandchildrenBox(insertHTML){
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'grandchildren_wrapper'>
                                 <div class='exhibitionPage__main__contents__detail__category__choose2'>
@@ -53,8 +53,7 @@ $(document).ready(function(){
           children.forEach(function(child){
             insertHTML += appendOption(child);
           });
-          appendChidrenBox(insertHTML);
-          console.log(insertHTML)
+          appendChildrenBox(insertHTML);
         })
         // エラー警告
         .fail(function(){
@@ -85,7 +84,7 @@ $(document).ready(function(){
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);
             });
-            appendGrandchidrenBox(insertHTML);
+            appendGrandchildrenBox(insertHTML);
           }
         })
         // エラー警告
