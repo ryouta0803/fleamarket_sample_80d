@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   
   root 'items#index'
 
-  resources :users, only: :show
 
   # resources :users, only: [:edit, :update]
   resources :cards, only: [:new, :show, :destroy] do
