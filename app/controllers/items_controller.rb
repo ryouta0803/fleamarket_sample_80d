@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   # before_action :move_to_index, only: [:show]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
-    @items = Item.all
+    @items = Item.includes(:item_imgs)
   end
 
   def new
@@ -38,9 +38,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    # @item = Item.find(params[:id])
   end
 
   def update
+    # @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -62,10 +64,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-　　@item = Item.includes(:item_imgs).find(params[:id])
+    @item = Item.includes(:item_imgs).find(params[:id])
   end
-
-  # def move_to_index
-  #   redirect_to root_path unless user_signed_in?
-  # end
 end

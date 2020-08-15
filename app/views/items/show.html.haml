@@ -83,7 +83,7 @@
         送料込み
     .message
       -if user_signed_in? && current_user.id == @item.user_id
-        = link_to "商品の編集", "#", class: "submit-btn submit-btn--red"
+        = link_to "商品の編集", edit_item_path(@item.id), class: "submit-btn submit-btn--red"
         %p
           or
         = link_to "出品を再開する","", class: "submit-btn submit-btn--red"
