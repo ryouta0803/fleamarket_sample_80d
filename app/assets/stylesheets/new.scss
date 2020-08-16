@@ -28,16 +28,13 @@
     margin: 0px auto;
     max-width: 700px;
     background-color:white;
-  
-  
-  
-  
+
     .wrapper-sale{
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-    
+
     .upload-box{
       padding: 40px;
       &__head{
@@ -61,7 +58,7 @@
         }
       }
     }
-    
+
     .content-sale{
       &__header{
         height: 128px;
@@ -278,12 +275,12 @@
               padding: 0 56px 0 16px;
               width: 100%;
             }
-            #children_wrapper {  
+            #children_wrapper {
               padding-top: 10px;
             }
-            #grandchildren_wrapper { 
+            #grandchildren_wrapper {
               padding-top: 10px;
-            }   
+            }
             i{
               bottom: 0;
               margin: auto;
@@ -316,12 +313,12 @@
               padding: 0 56px 0 16px;
               width: 100%;
             }
-            #children_wrapper {  
+            #children_wrapper {
               padding-top: 10px;
             }
-            #grandchildren_wrapper { 
+            #grandchildren_wrapper {
               padding-top: 10px;
-            }   
+            }
             i{
               bottom: 0;
               margin: auto;
@@ -331,7 +328,6 @@
               top: 0;
             }
           }
-          
         }
         &__brand{
           margin-top: 16px;
@@ -501,7 +497,6 @@
     .warning{
       margin: 0px 40px 64px;
       font-size: 12px;
-      padding-bottom: 80px;
       p{
         display: inline;
         line-height: 1.4em;
@@ -516,7 +511,6 @@
       margin-top: auto;
       text-align: center;
       img{
-        
         margin-bottom: 8px;
         width: 200px;
         vertical-align: middle;
@@ -541,7 +535,7 @@
     }
     .optional{
       margin-top: 30px !important;
-      background-color: #bfbfbf !important; 
+      background-color: #bfbfbf !important;
     }
     .require{
       margin-top: 30px !important;
@@ -550,9 +544,7 @@
       margin-left: 4px;
       color: #00CCFF;
     }
-    
-    
-    
+
     // エラーメッセージのCSS
     .error_explanation {
       padding: 40px;
@@ -567,7 +559,7 @@
         }
       }
     }
-    
+
     //image投稿欄のCSS
     .post__drop__box__container{
       display: block;
@@ -575,9 +567,9 @@
       display: flex;
       flex-wrap: wrap;
     }
-    
+
     //プレビュー表示欄のCSS
-    
+
     .preview-box {
       height: 162px;
       width: 112px;
@@ -604,8 +596,7 @@
         }
       }
     }
-    
-    
+
     //投稿クリックエリアのCSS
     .label-content{
       margin-bottom: 10px;
@@ -642,8 +633,7 @@
         word-wrap: break-word;
       }
     }
-    
-    
+
     //file_fieldのcss
     .hidden-content {
       .hidden-field {
@@ -653,45 +643,35 @@
         display: none;
       }
     }
-  }
-  .pur-footer{
-    margin-top: auto;
-    text-align: center;
-    padding: 40px 0px 11px;
-    &__nav {
-      vertical-align: baseline;
-      margin: 0px;
-      padding: 0px;
-      border-width: 0px;
-      border-style: initial;
-      border-color: initial;
-      border-image: initial;
-      font: inherit;
-      
-        &__ul  {
-          position: relative;
-          min-height: 100%;
-          color: #333333;
-          background-color: whitesmoke;
-          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-          font-size: 14px;
-          display: inline-flex;
-          padding-bottom: 50px;
-          .pur-footer__nav__ul__a {
-            padding: 20px;
-            
-            
-            text-decoration: none;
-            color: black;
-          }
-
+    .login_footer-main{
+      margin-top: auto;
+      text-align: center;
+      padding: 40px 0px 41px;
+      background: whitesmoke;
+      &__toc {
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        &__content {
+          margin: 16px 0 0 20px;
         }
       }
-    .footer-log-img {
-      height: 65px;
-      margin-bottom: 8px;
-      width: 80px;
-      opacity: 0.7;
+      &__logo {
+        img {
+          height: 50px;
+          margin-bottom: 8px;
+          width: 100px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+    #image-box {
+      #previews {
+        .js-file_group {
+        }
+      }
     }
   }
 }
