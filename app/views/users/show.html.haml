@@ -68,9 +68,9 @@
             やることリスト
             = icon('fas', 'chevron-right', class: 'mypage-icon')
         %li
-          =link_to favorites_users_path,  class:"main-contents__side-container__mypage-nav__ul__li__a first" do
-            お気に入り一覧
-            = icon('fas', 'chevron-right', class: 'mypage-icon-first')
+          -# =link_to favorites_users_path,  class:"main-contents__side-container__mypage-nav__ul__li__a first" do
+          -#   お気に入り一覧
+          -#   = icon('fas', 'chevron-right', class: 'mypage-icon-first')
         %li
           =link_to "#", class:"main-contents__side-container__mypage-nav__ul__li__a" do
             出品する
@@ -140,9 +140,9 @@
             発送元・お届け先住所
             = icon('fas', 'chevron-right', class: 'mypage-icon')
         %li
-          =link_to new_card_path, class: "main-contents__side-container__mypage-nav__config__li__a" do
-            クレジットカード情報確認/削除
-            = icon('fas', 'chevron-right', class: 'mypage-icon')
+          -# =link_to new_card_path, class: "main-contents__side-container__mypage-nav__config__li__a" do
+          -#   クレジットカード情報確認/削除
+          -#   = icon('fas', 'chevron-right', class: 'mypage-icon')
         %li
           =link_to "#", class: "main-contents__side-container__mypage-nav__config__li__a" do
             メール/パスワード
@@ -156,16 +156,16 @@
             電話番号の確認
             = icon('fas', 'chevron-right', class: 'mypage-icon')
         %li
-          =link_to edit_home_path(current_user.id), class: "main-contents__side-container__mypage-nav__config__li__a" do
-            ログアウト
-            = icon('fas', 'chevron-right', class: 'mypage-icon') #リンクのパス追記（浅野）
+          -# =link_to edit_home_path(current_user.id), class: "main-contents__side-container__mypage-nav__config__li__a" do
+          -#   ログアウト
+          -#   = icon('fas', 'chevron-right', class: 'mypage-icon') #リンクのパス追記（浅野）
 
   .main-contents__container
     %section.main-contents__container__tab-favo
       %h2.main-contents__container__tab-fav__h2
         お気に入り一覧
       %ul.main-contents__container__tab-fav__h2__ul
-        - current_user.favorite_items.each do |item|
+        -# - current_user.favorite_items.each do |item|
           %li.main-contents__container__tab-fav__h2__ul__li
             =link_to item_path(item), class: "main-contents__container__tab-fav__h2__ul__li__a" do
               %figure.main-contents__container__tab-fav__h2__ul__li__a__figure
@@ -191,9 +191,9 @@
       今すぐ無料ダウンロード！
     .footer-banner__inner__link
       =link_to "#" do
-        = image_tag "app.svg", alt: "ロゴ"
+        -# = image_tag "app.svg", alt: "ロゴ"
       =link_to "#" do
-        = image_tag "goo.svg", alt: "ロゴ"
+        -# = image_tag "goo.svg", alt: "ロゴ"
 .footer-main
   %ul.footer-main__toc
     %li.footer-main__toc__content
@@ -243,4 +243,4 @@
 =link_to new_item_path do
   .listing-btn
     %span 出品する
-    = image_tag "syuppin.svg", alt: "ロゴ"
+    -# = image_tag "syuppin.svg", alt: "ロゴ"
