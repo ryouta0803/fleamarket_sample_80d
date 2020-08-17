@@ -6,15 +6,14 @@ require 'rails_helper'
   describe Card do
     describe '#create' do
       it "user_id、customer_id、card_idが存在すれば登録できること" do
-        # binding.pry
         user = create(:user)
-        card = build(:card, user_id: user.id)
+        card = FactoryBot.build(:card, user_id: user[:id])
         expect(card).to be_valid
       end
       it "user_idがない場合は登録できないこと" do
         card = build(:card, user_id: nil)
         card.valid?
-        expect(card.errors[:user_id]).to include("を入力してください")
+        expect(card.errors[:user]).to include("を入力してください")
       end
       it "customer_idがない場合は登録できないこと" do
         card = build(:card, customer_id: nil)
