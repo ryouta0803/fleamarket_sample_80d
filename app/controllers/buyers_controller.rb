@@ -27,8 +27,8 @@ class BuyersController < ApplicationController
   end
 
   def done
-    @item_buyer= Item.find(params[:id]) #購入ボタンを押したら購入者のIDが商品に登録される
-    @item_buyer.update( buyer_id: current_user.id)
+    @item_buyer= Item.find(params[:item_id]) #購入ボタンを押したら購入者のIDが商品に登録される
+    @item_buyer.update(sale_status: current_user.id)
   end
 
   private

@@ -27,8 +27,8 @@
     .user-info
       .user-info__inner
         お支払い方法
+      = link_to "変更する", "#", calss:"update-btn"
       .inner-credit
-        = link_to "変更する", "#", calss:"update-btn"
         .inner-credit__brand
           %figure
             =image_tag("visaカード.png")
@@ -46,14 +46,18 @@
     .adress
       .adress__post
         配送先
+      .adress__change
+      = link_to "変更する", "#", calss:"update-btn"
       .adress__info
-        = link_to "変更する", "#", calss:"update-btn"
-        住所 111-2222
-        %p 東京都 千代田区 丸の内 1-1-1
-        
-      .adress__name
-        %p 氏名  
-        %p 田中 太郎 様
+        .adress__info__address
+        = current_user.address.postal_code
+        .adress__info__address
+        = current_user.address.prefecture
+        = current_user.address.city
+        = current_user.address.address
+        .adress__info__name
+        = current_user.address.first_name
+        = current_user.address.last_name
 
     .purchase
       .submit
