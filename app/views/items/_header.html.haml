@@ -16,9 +16,9 @@
         %ul
           .header__contents__nav-list__left__category
             %li.header__contents__nav-list__left__category__li
-              =link_to "#", class: "categories" do
+              =link_to category_get_category_children_items_path(@items), class: "categories" do
                 カテゴリー
-              -# = render partial: 'home/categories_drop'リンク先がないエラー解消のため
+              -# = render partial: 'home/categories_drop'カテゴリ未設定によりエラー表示を防ぐため
           .header__contents__nav-list__left__brand
             %li.header__contents__nav-list__left__brand__li
               =link_to "#" do
@@ -31,28 +31,32 @@
               %li.header__contents__nav-list__right__login__li
                 =link_to destroy_user_session_path, method: "DELETE" do
                   ログアウト
-            
+
             .header__contens__nav-list__right__new
-              %li.header__contens__nav-list__right__new__li
-                -# =link_to user_path(current_user[:id]), method: :get, class: 'Button-show' do
+              %li.header__contents__nav-list__right__new__li
+
+                =link_to '#', method: :get, class: 'Button-show' do
                   マイページ
-                
+
+                -# =link_to user_path(current_user[:id]) do 未然エラー防止
+                -#   マイページ     
+
           -else
             .header__contents__nav-list__right__login
               %li.header__contents__nav-list__right__login__li
                 =link_to new_user_session_path do
                   ログイン
-              
+
             .header__contens__nav-list__right__new
-              %li.header__contens__nav-list__right__new__li
+              %li.header__contents__nav-list__right__new__li
                 =link_to new_user_registration_path, method: :get do
-                  新規登録       
+                  新規会員登録       
 
 
 
 
 
--# .category__containerリンク先がないエラー解消のため
+-# .category__container  カテゴリ未設定によりエラー表示を防ぐため
 -#   .category__container--top
 -#     %h3
 -#       カテゴリー一覧
@@ -72,7 +76,7 @@
 -#           - parent.children.each do |child|
 -#             .child__box
 -#               .child__box--name
--#                 = child.name  
+-#                 = child.name
 -#               .grandchild__box
 -#                 .grandchild__link
 -#                   = link_to "#", class: "category__link--btn" do

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   # resources :users, only: [:edit, :update]
   resources :cards, only: [:new, :show, :destroy] do
+
+  resources :items do
+    # resources :comments 準備のみ
+    #Ajaxで動くアクションのルートを作成
     collection do
       post 'pay', to: 'cards#pay'
       post 'purchase', to: 'items#purchase'
@@ -35,3 +39,4 @@ Rails.application.routes.draw do
       end
     end
   end
+end

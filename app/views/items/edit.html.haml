@@ -11,12 +11,12 @@
             %h2.error_explanation__inner__h2
               = pluralize(@item.errors.count, "個")
               のエラーが発生しています。
-
+            
             %ul
               - @item.errors.full_messages.each do |message|
                 %li
                   = message
-
+    
       = f.hidden_field :trading_status, value: "販売中"
       -# = f.hidden_field :user_id, value: current_user.id
       .upload-box
@@ -24,12 +24,12 @@
           %h3.upload-box__head__h3 出品画像
           %span.upload-box__head__span 必須
         %p.discription 最大10枚までアップロードできます
-
+    
       #image-box
         #previews
           - if @item.persisted?
             - @item.item_imgs.each_with_index do |image, i|
-              = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+              = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
         = f.fields_for :item_imgs do |image|
           %label
             .js-file_group{"data-index": "#{image.index}"}
@@ -45,7 +45,7 @@
                 = icon("fas", "camera fa-lg" )
                 = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
                 .js-remove 削除
-
+                
       %hr.content-sale--hr
       .content-sale__main__box__form
         .content-sale__main__box__form__item
@@ -57,7 +57,7 @@
           .content-sale__main__box__form__item__box
             .content-sale__main__box__form__item__box__input
               = f.text_field :name, placeholder:"商品名（必須 40文字以内)", class: "input", maxlength: "40"
-
+    
         .content-sale__main__box__form__intro
           .content-sale__main__box__form__inner__title
             %label.content-sale__main__box__form__inner__title__label
@@ -68,7 +68,7 @@
             = f.text_area :explain, class: "items-new-form-area__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "7", id: "input-text", maxlength: "1000"
             .content-sale__main__box__form__inner__intro__bottom
               %p{id: "counter"}
-
+    
       %hr.content-sale--hr
       .content-sale__main__box__form
         %p
@@ -84,7 +84,7 @@
               .item-detail__inner__box__select
                 = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
                 .exhibitionPage__main__contents__detail__category__choose
-
+    
         .item-detail
           .item-detail__inner
             .item-detail__inner__name
@@ -105,7 +105,7 @@
             .item-detail__inner__box
               .item-detail__inner__box__select
                 = f.select :status, Item.statuses.keys,{prompt:"---"}
-
+    
       %hr.content-sale--hr
       .content-sale__main__box__form
         %p
@@ -132,7 +132,7 @@
             .item-detail__inner__box
               .item-detail__inner__box__select
                 = f.select :prefecture, Item.prefectures.keys,{prompt:"---"}
-
+    
         .item-dteil
           .item-detail__inner
             .item-detail__inner__name
@@ -143,7 +143,7 @@
             .item-detail__inner__box
               .item-detail__inner__box__select
                 = f.select :shipping_date, Item.shipping_dates.keys,{prompt:"---"}
-
+    
       %hr.content-sale--hr
       .content-sale__main__box__form
         %p
@@ -177,7 +177,7 @@
             #revenue
       .btn
         =f.submit "出品する",class:"btn__listing"
-
+    
         =link_to "もどる",items_path
       .warning
         %p
@@ -202,20 +202,19 @@
           加盟店規約
         %p
           に同意したことになります。
-
-      .login_footer-main
-        %ul.login_footer-main__toc
-          %li.login_footer-main__toc__content
-            =link_to "#" do
-              プライバシーポリシー
-          %li.login_footer-main__toc__content
-            =link_to "#" do
-              フリマ利用規約
-          %li.login_footer-main__toc__content
-            =link_to "#" do
-              特定取引に関する表記
-        .login_footer-main__logo
+          .login_footer-main
+      %ul.login_footer-main__toc
+        %li.login_footer-main__toc__content
           =link_to "#" do
-            = image_tag "logo.png", alt: "ロゴ"
-          %p
-            © FURIMA
+            プライバシーポリシー
+        %li.login_footer-main__toc__content
+          =link_to "#" do
+            フリマ利用規約
+        %li.login_footer-main__toc__content
+          =link_to "#" do
+            特定取引に関する表記
+      .login_footer-main__logo
+        =link_to "#" do
+          = image_tag "logo.png", alt: "ロゴ"
+      %p
+        © FURIMA
