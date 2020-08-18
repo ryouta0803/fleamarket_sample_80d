@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
   # resources :users, only: [:edit, :update]
-  resources :cards, only: [:new, :show, :destroy] do
+  resources :cards, only: [:new, :show, :create, :destroy] do
 
     resources :items do
       # resources :comments 準備のみ

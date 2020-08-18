@@ -2,7 +2,7 @@
   .header__title
     クレジットカード情報入力
 .form
-  = form_tag(pay_cards_path, method: :post, id: 'charge-form',name: "inputForm", ) do
+  = form_tag(cards_path, method: :post, id: 'charge-form',name: "inputForm", ) do
     .style_label
       %label カード番号
       .require 必須

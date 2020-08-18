@@ -89,7 +89,7 @@
         = link_to "出品を再開する","", class: "submit-btn submit-btn--red"
         = link_to "この商品を削除する", item_path, class: "submit-btn submit-btn--gray", method: "DELETE"
       - elsif @item.sale_status == 1
-        = link_to "購入画面に進む", " /items/:item_id/buyers", class: "item__purchase-screen-button"
+        = link_to "購入画面に進む", item_buyers_path(@item), class: "item__purchase-screen-button"
       - elsif @item.sale_status == 2
         = link_to "この商品は公開停止中です", "", class: "submit-btn submit-btn--gray"
       - else

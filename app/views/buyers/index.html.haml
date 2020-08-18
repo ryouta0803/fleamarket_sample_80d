@@ -14,21 +14,21 @@
           .buy-details__item-name
             = @item.name
           .buy-details__item-price
-            ¥
             %span.main__shopping-free 
+            (税込) 送料込み
             = "¥#{@item.price.to_s}"
 
     .price
       .price__left
         お支払い金額
       .price__right
-        ¥
         %span.price__shopping-free
         = "¥#{@item.price.to_s}"
     .user-info
       .user-info__inner
         お支払い方法
       .inner-credit
+        = link_to "変更する", "#", calss:"update-btn"
         .inner-credit__brand
           %figure
             =image_tag("visaカード.png")
@@ -47,6 +47,7 @@
       .adress__post
         配送先
       .adress__info
+        = link_to "変更する", "#", calss:"update-btn"
         住所 111-2222
         %p 東京都 千代田区 丸の内 1-1-1
         
