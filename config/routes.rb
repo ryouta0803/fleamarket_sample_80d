@@ -13,29 +13,29 @@ Rails.application.routes.draw do
   # resources :users, only: [:edit, :update]
   resources :cards, only: [:new, :show, :destroy] do
 
-  resources :items do
-    # resources :comments 準備のみ
-    #Ajaxで動くアクションのルートを作成
-    collection do
-      post 'pay', to: 'cards#pay'
-      post 'purchase', to: 'items#purchase'
+    resources :items do
+      # resources :comments 準備のみ
+      #Ajaxで動くアクションのルートを作成
+      collection do
+        post 'pay', to: 'cards#pay'
+        post 'purchase', to: 'items#purchase'
+      end
     end
   end
-  
+
   resources :items
     #Ajaxで動くアクションのルートを作成
-    resources :items, only: [:new, :show, :create, :edit, :update, :destroy] do
+  resources :items, only: [:new, :show, :create, :edit, :update, :destroy] do
 
+    collection do
+      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
+    
+    resources :buyers, only: [:index] do
       collection do
-        get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
-        get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
-      end
-      
-      resources :buyers, only: [:index] do
-        collection do
-          get 'done', to: 'buyers#done'
-          post 'pay', to: 'buyers#pay'
-        end
+        get 'done', to: 'buyers#done'
+        post 'pay', to: 'buyers#pay'
       end
     end
   end
