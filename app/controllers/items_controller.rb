@@ -51,8 +51,6 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find_by(id: params[:id])
-    # @item.destroy
-    # redirect_to :root
     if @item.user_id == current_user.id
       if @item.destroy
         redirect_to root_path, notice: "削除が完了しました"
