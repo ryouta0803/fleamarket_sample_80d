@@ -1,6 +1,8 @@
 class BuyersController < ApplicationController
   require 'payjp'#Payjpの読み込み
-  before_action :set_card, :set_item
+  before_action :set_card
+  before_action :set_item, only: :done
+
 
   def index
     if @card.blank?
@@ -27,7 +29,6 @@ class BuyersController < ApplicationController
   end
 
   def done
-    @item_buyer= Item.find(params[:item_id]) #購入ボタンを押したら購入者のIDが商品に登録される
     @item_buyer.update(sale_status: current_user.id)
   end
 
@@ -39,7 +40,6 @@ class BuyersController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
-    
   end
 
 end
