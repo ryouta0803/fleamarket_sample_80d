@@ -29,7 +29,7 @@ class BuyersController < ApplicationController
   end
 
   def done
-    @item_buyer.update(sale_status: current_user.id)
+    @item.update(sale_status: current_user.id)
   end
 
   private
