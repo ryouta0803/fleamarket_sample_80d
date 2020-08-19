@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("../category")
+require("../new_item")
 require("../payjp")
 require('jquery')
 
