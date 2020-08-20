@@ -675,3 +675,16 @@
     }
   }
 }
+select{
+  @include colorstyle(#fff, #222, #ff0211);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 48px;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0 56px 0 16px;
+  width: 100%;
+}
