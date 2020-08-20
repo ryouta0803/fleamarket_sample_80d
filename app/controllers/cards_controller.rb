@@ -22,7 +22,7 @@ class CardsController < ApplicationController
         redirect_to card_path(current_user.id)
         flash[:notice] = 'クレジットカードの登録が完了しました'
       else
-        redirect_to pay_card_items_path
+        redirect_to new_card_path
         flash[:alert] = 'クレジットカード登録に失敗しました'
       end
     end
