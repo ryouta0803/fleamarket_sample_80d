@@ -82,8 +82,17 @@
                 必須
             .item-detail__inner__box
               .item-detail__inner__box__select
-                = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
-                .exhibitionPage__main__contents__detail__category__choose
+                = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---', selected: @parent.id}, { id: 'parent_category'}
+                  -# .exhibitionPage__main__contents__detail__category__choose
+                  -#   #children_wrapper.exhibitionPage__main__contents__detail__category__choose__added
+                  -#     .exhibitionPage__main__contents__detail__category__choose1
+              .item-detail__inner__box__select
+                = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}"), :id, :name, {prompt: '---', selected: @child.id}, {name: "item[hoge]", id: 'child_category'}
+              -#     -# #grandchildren_wrapper.exhibitionPage__main__contents__detail__category__choose__added
+              -#     -#   .exhibitionPage__main__contents__detail__category__choose2
+              .item-detail__inner__box__select
+                = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}/#{@child.id}"), :id, :name, {prompt: '---', selected: @grandchild.id}, {name: "item[hoge]", id: 'grandchild_category'}
+
     
         .item-detail
           .item-detail__inner

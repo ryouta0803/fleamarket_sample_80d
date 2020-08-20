@@ -1,8 +1,7 @@
-$(document).ready(function(){
-  $(function(){
-    function appendOption(category){
-      var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
-      return html;
+$(document).on('turbolinks:load', ()=> {
+  function appendOption(category){
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+    return html;
     }
     // 子カテゴリーを表示させる。
     function appendChildrenBox(insertHTML){
@@ -30,11 +29,14 @@ $(document).ready(function(){
                               </div>`;
       $('.exhibitionPage__main__contents__detail__category__choose').append(grandchildSelectHtml);
     }
+    
     // 親カテゴリーを選択した後にイベント発火させる。
-    console.log($('#parent_category'));
     $('#parent_category').on('change', function(){
+      console.log($('#parent_category'));
       // 選択された親カテゴリーのidを取得
-      var parent_category_id = document.getElementById
+      // var parent_category_id = document.getElementById
+      var parent_category_id = $(this).val();
+      // console.log(parent_category_id);
       ('parent_category').value; 
       if (parent_category_id != "---"){ 
         $.ajax({
@@ -48,7 +50,8 @@ $(document).ready(function(){
           console.log(children)
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
-
+          console.log($('#children_wrapper'))
+          // debugger;
           var insertHTML = '';
           children.forEach(function(child){
             insertHTML += appendOption(child);
@@ -66,9 +69,11 @@ $(document).ready(function(){
         $('#grandchildren_wrapper').remove();
       }
     });
-
     $('.content-sale__main__box__form').on('change', '#child_category', function(){
-      var child_category_id = $('#child_category option:selected').data('category'); 
+      console.log("#child_category");
+      var child_category_id = $('#child_category option:selected').data('category');
+      // データが取得できていないからチェック#child_category option:selected
+      // debugger;
       if (child_category_id != "---"){ 
         $.ajax({
           url: '/items/category/get_category_grandchildren',
@@ -95,6 +100,5 @@ $(document).ready(function(){
       }else{
         $('#grandchildren_wrapper').remove(); 
       }
-    });
   });
-}); 
+});
