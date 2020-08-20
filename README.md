@@ -128,12 +128,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
-|card_company|string	null: false|
-|card_number|string|null: false|
-|card_year|integer|null: false|
-|card_month|integer|null: false|
-|card_pass|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ### Association
