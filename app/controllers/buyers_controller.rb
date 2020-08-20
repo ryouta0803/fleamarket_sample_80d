@@ -1,7 +1,7 @@
 class BuyersController < ApplicationController
   require 'payjp'#Payjpの読み込み
   before_action :set_card
-  before_action :set_item, only: :done
+  before_action :set_item, only: [:index, :pay, :done]
 
 
   def index
