@@ -18,7 +18,7 @@
                   = message
     
       = f.hidden_field :trading_status, value: "販売中"
-      -# = f.hidden_field :user_id, value: current_user.id
+
       .upload-box
         .upload-box__head
           %h3.upload-box__head__h3 出品画像
@@ -75,15 +75,25 @@
           商品の詳細
         .item-dteil
           .item-detail__inner
-            .item-detail__inner__name
-              %label
-                カテゴリー
-              %span
-                必須
-            .item-detail__inner__box
-              .item-detail__inner__box__select
-                = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
-                .exhibitionPage__main__contents__detail__category__choose
+            .item-detail__inner_category
+              .item-detail__inner__name
+                %label
+                  カテゴリー
+                %span
+                  必須
+              .item-detail__inner__box
+                .item-detail__inner__box__select
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---', selected: @parent.id}, { id: 'parent_category'}
+                  .exhibitionPage__main__contents__detail__category__choose
+                    
+              .item-detail__inner__box
+                .item-detail__inner__box__select
+                  = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}"), :id, :name, {prompt: '---', selected: @child.id}, { id: 'child_category_id'}
+                  -# .exhibitionPage__main__contents__detail__category__choose1
+              .item-detail__inner__box
+                .item-detail__inner__box__select
+                  = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}/#{@child.id}"), :id, :name, {prompt: '---', selected: @grandchild.id}, { id: 'grandchild_category'}
+
     
         .item-detail
           .item-detail__inner
