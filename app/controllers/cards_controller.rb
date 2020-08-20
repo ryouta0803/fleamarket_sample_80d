@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show, :destroy]
+  before_action :set_item, only: [:create]
   require "payjp"
 
   def new
@@ -19,14 +20,15 @@ class CardsController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to item_buyers_path(params[:item_id])
         flash[:notice] = 'クレジットカードの登録が完了しました'
+        redirect_to items_buyers_path(@item)
       else
-        render :new
         flash[:alert] = 'クレジットカード登録に失敗しました'
+        render :new
       end
     end
   end
+
 
   def destroy #PayjpとCardデータベースを削除
     if card.blank?
@@ -50,7 +52,12 @@ class CardsController < ApplicationController
   end
 
   private
-  def set_card
-    card = Card.find(user_id: current_user.id)
-  end
+
+    def set_card
+      card = Card.find(user_id: current_user.id)
+    end
+
+    def set_item
+      @item = Item.find(params[:item_id])
+    end
 end
