@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   # before_action :move_to_index, only: [:show]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
-    @items = Item.all.order('id DESC').limit(5)
+    @items = Item.all.order('id DESC').limit(5）
   end
 
   def new
@@ -37,13 +37,28 @@ class ItemsController < ApplicationController
     @parent = @child.parent
   end
 
+
   def edit
+    @grandchild = @item.category
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
-  def destory
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy.user_id == current_user.id && @item.destroy
+      redirect_to root_path, notice: "削除が完了しました"
+    else
+      render action: :show, alert: "削除が失敗しました"
+    end
   end
 
   private
@@ -57,10 +72,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-　　@item = Item.includes(:item_imgs).find(params[:id])
+    @item = Item.includes(:item_imgs).find(params[:id])
   end
-
-  # def move_to_index
-  #   redirect_to root_path unless user_signed_in?
-  # end
 end
