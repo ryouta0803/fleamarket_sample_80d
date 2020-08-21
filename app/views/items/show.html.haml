@@ -87,14 +87,14 @@
         %p
           or
         = link_to "この商品を削除する", item_path, class: "submit-btn submit-btn--gray", method: "DELETE"
-      - elsif @item.sale_status.nil?
+      - elsif user_signed_in? && @item.sale_status.nil?
         = link_to "購入画面に進む", item_buyers_path(@item), class: "item__purchase-screen-button"
-      - else
+      - elsif user_signed_in? && @item.sale_status.present?
         = link_to "この商品の取引は完了しました", "", class: "submit-btn submit-btn--gray"
-      -# - elsif @item.sale_status.present?
-      -#   = link_to "この商品の取引は完了しました", "", class: "submit-btn submit-btn--gray"
-      -# - else
-      -#   = link_to "購入画面に進む", item_buyers_path(@item), class: "item__purchase-screen-button"
+      - else
+        .new_user
+          = link_to "ログインはこちら", new_user_session_path, class: "submit-btn submit-btn--red"
+          = link_to "新規登録はこちら", new_user_registration_path, class: "submit-btn submit-btn--red"
 
 
     .description
@@ -148,7 +148,7 @@
       %h2.title
         = link_to "#{@item.user.nick_name}さんのその他の出品", ""
       .content
-        -# - @item.sale_status.nil?.each do |item|
+        -# - @item.sale_status = nil.each do |item|
         -#   .item-box
         -#     = link_to item_path(item.id), class:"other-items__login-user__items__item__link"
         -#     %figure.image
@@ -164,7 +164,7 @@
         -#           %i.far.fa-heart
         -#           %span
         -#             = rand(1000)
-                    
+
         .item-box
           %figure.image
             = image_tag "test2.jpg", size:"220x220"
