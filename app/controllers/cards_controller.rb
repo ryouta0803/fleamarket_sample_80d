@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
-
+  before_action :set_card, only: [:show, :destroy]
+  # before_action :set_item, only: [:create]
   require "payjp"
 
   def new
@@ -19,17 +20,18 @@ class CardsController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to item_buyers_path(params[:item_id])
         flash[:notice] = 'クレジットカードの登録が完了しました'
+        # redirect_to items_buyers_path(@item)
+        redirect_to root_path
       else
-        redirect_to pay_cards_path
         flash[:alert] = 'クレジットカード登録に失敗しました'
+        render :new
       end
     end
   end
 
+
   def destroy #PayjpとCardデータベースを削除
-    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
@@ -41,7 +43,6 @@ class CardsController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出す
-    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card_path 
     else
@@ -50,4 +51,14 @@ class CardsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
+
+  private
+
+    def set_card
+      card = Card.find(user_id: current_user.id)
+    end
+
+    # def set_item
+    #   @item = Item.find(params[:item_id])
+    # end
 end

@@ -8,6 +8,7 @@ $border-top: 1px solid #AAFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #EEEEEE;
   &__logo {
 
   }
@@ -16,7 +17,7 @@ $border-top: 1px solid #AAFFFF;
 .body{
   background-color: $main-background;
   .buy {
-    max-width: 375px;
+    max-width: 700px;
     margin: 0 auto;
     background-color: $main_color;
     .buy-content {
@@ -30,6 +31,8 @@ $border-top: 1px solid #AAFFFF;
       }
       &__main {
         text-align: center;
+        display: flex;
+        justify-content: center;
         img {
           border-radius: 30px;
         }
@@ -44,8 +47,7 @@ $border-top: 1px solid #AAFFFF;
           &__item-price {
             display: flex;
             justify-content: center;
-            font-weight: 600;
-            font-size: 24px; 
+            margin-left: 30px;
           }
           .main__shopping-free{
             margin-left: 8px;

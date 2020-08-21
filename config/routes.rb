@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       #Ajaxで動くアクションのルートを作成
       collection do
         post 'pay', to: 'cards#pay'
-        post 'purchase', to: 'items#purchase'
+        # post 'purchase', to: 'items#purchase'
       end
     end
   end
