@@ -20,47 +20,51 @@
 
     .price
       .price__left
-        お支払い金額
+        支払い金額
       .price__right
         %span.price__shopping-free
         = "¥#{@item.price.to_s}"
     .user-info
       .user-info__inner
-        お支払い方法
-      = link_to "変更する", "#", calss:"update-btn"
-      .inner-credit
-        .inner-credit__brand
-          %figure
-            =image_tag("visaカード.png")
-        .card
-          - if @default_card_information.blank?
-            %br /
-          - else
-            = "**** **** **** " + "#{@default_card_information.last4}"
-            %br
-            - exp_month = @default_card_information.exp_month.to_s
-            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-            = "有効期限 " + exp_month + " / " + exp_year
-            %br
+        支払い方法
+      .user-info__change
+        = link_to "変更する","#"
+    
+    .card
+      .card__title
+        クレジットカード
+      .card__limit
+        - if @default_card_information.blank?
+          %br /
+        - else
+          = "**** **** **** " + "#{@default_card_information.last4}"
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = "有効期限 " + exp_month + " / " + exp_year
+          %br
+    .inner-credit
+      .inner-credit__brand
+        %figure
+          =image_tag("visaカード.png")
 
     .adress
       .adress__post
         配送先
       .adress__change
-      = link_to "変更する", "#", calss:"update-btn"
-      .adress__info
-        .adress__info__address
-        = current_user.address.postal_code
-        .adress__info__address
-        = current_user.address.prefecture
-        = current_user.address.city
-        = current_user.address.address
-        .adress__info__name
-        = current_user.address.first_name
-        = current_user.address.last_name
+      = link_to "変更する", "#"
+    .adress__info
+      .adress__info__address
+      = current_user.address.postal_code
+      .adress__info__address
+      = current_user.address.prefecture
+      = current_user.address.city
+      = current_user.address.address
+      .adress__info__name
+      = current_user.address.first_name
+      = current_user.address.last_name
 
     .purchase
       .submit
       = form_tag(action: :pay, method: :post) do
         %button.buy-button{type:"submit"} 購入する
-

@@ -55,7 +55,7 @@ class CardsController < ApplicationController
   private
 
     def set_card
-      card = Card.find(user_id: current_user.id)
+      card = Card.find_by(user_id: current_user.id)
     end
 
     # def set_item
