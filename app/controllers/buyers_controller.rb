@@ -1,7 +1,7 @@
 class BuyersController < ApplicationController
   require 'payjp'#Payjpの読み込み
   before_action :set_card
-  before_action :set_item, only: [:index, :pay, :done]
+  before_action :set_item, only: [:index, :pay]
 
 
   def index
@@ -25,11 +25,8 @@ class BuyersController < ApplicationController
       customer: @card.customer_id,  #顧客ID
       currency: 'jpy',              #日本円
     )
-    redirect_to root_path, notice: "購入が完了しました"
-  end
-
-  def done
     @item.update(sale_status: current_user.id)
+    redirect_to root_path, notice: "購入が完了しました"
   end
 
   private
