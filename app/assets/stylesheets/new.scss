@@ -151,7 +151,7 @@
                   margin: 0;
                   outline: none;
                   padding: 0 16px;
-                  width: 100%;;
+                  width: 100%;
                 }
               }
             }
@@ -553,10 +553,10 @@
         text-align: center;
         border: 3px solid red;
         padding-bottom: 20px;
-        &__h2{
-          color: red;
-          padding-top: 20px;
-        }
+        // &__h2{        ※h２の指定でindexに悪影響が出るため色々試しています、うまく行き次第消去なり改変をします
+        //   color: red;
+        //   padding-top: 20px;
+        // }
       }
     }
 
@@ -674,17 +674,4 @@
       }
     }
   }
-}
-select{
-  @include colorstyle(#fff, #222, #ff0211);
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 16px;
-  height: 48px;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 0 56px 0 16px;
-  width: 100%;
 }

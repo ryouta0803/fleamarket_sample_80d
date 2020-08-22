@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
   $(function(){
     function appendOption(category){
       let html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -7,27 +7,47 @@ $(document).ready(function(){
     // 子カテゴリーを表示させる。
     function appendChildrenBox(insertHTML){
       let childSelectHtml = '';
-      childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'child_category'>
-                          <div class='exhibitionPage__main__contents__detail__category__choose1'>
-                            <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category_id" name="item[category_id]">
+      // childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'child_category'>
+      //                     <div class='exhibitionPage__main__contents__detail__category__choose1'>
+      //                       <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category_id" name="item[category_id]">
+      //                         <option value="---" data-category="---">---</option>
+      //                         ${insertHTML}
+      //                       </select>
+      //                     </div>
+      //                   </div>`;
+
+      childSelectHtml = `<div class="item-detail__inner__box" id= "child_category_box_id">
+                          <div class="item-detail__inner__box__select">
+                            <select class="item-detail__inner__box--select" id="child_category_id" name="item[category_id]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             </select>
                           </div>
                         </div>`;
+
       $('.item-detail__inner_category').append(childSelectHtml);
     }
     // 孫カテゴリーを表示させる。
     function appendGrandchildrenBox(insertHTML){
       let grandchildSelectHtml = '';
-      grandchildSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'grandchild_category'>
-                                <div class='exhibitionPage__main__contents__detail__category__choose2'>
-                                  <select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="item[category_id]">
+      // grandchildSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'grandchild_category'>
+      //                           <div class='exhibitionPage__main__contents__detail__category__choose2'>
+      //                             <select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="item[category_id]">
+      //                               <option value="---" data-category="---">---</option>
+      //                               ${insertHTML}
+      //                             </select>
+      //                           </div>
+      //                         </div>`;
+
+      grandchildSelectHtml =`<div class="item-detail__inner__box" id= "grandchild_category_box_id">
+                                <div class="item-detail__inner__box__select">
+                                  <select class="item-detail__inner__box__select" id="grandchild_category" name="item[category_id]">
                                     <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>
                                 </div>
                               </div>`;
+
       $('.item-detail__inner_category').append(grandchildSelectHtml);
     }
     
@@ -47,8 +67,9 @@ $(document).ready(function(){
         .done(function(children){         
           // 親カテゴリー削除された時、子・孫カテゴリーを削除する。
           console.log(children)
-          $('#child_category_id').remove(); 
-          $('#grandchild_category').remove();
+
+          $("#child_category_box_id").remove(); 
+          $("#grandchild_category_box_id").remove();
           console.log($('child_category'))
           // debugger;
           let insertHTML = '';
@@ -59,13 +80,13 @@ $(document).ready(function(){
         })
         // エラー警告
         .fail(function(){
-          $('#child_category').remove();
-          $('#grandchild_category_id').remove(); 
+          $("#child_category_box_id").remove();
+          $("#grandchild_category_box_id").remove(); 
           alert('カテゴリーを選択してください');
         })
       }else{
-        $('#child_category').remove(); 
-        $('#grandchild_category').remove();
+        $("#child_category_box_id").remove(); 
+        $("#grandchild_category_box_id").remove();
       }
     });
     $('.content-sale__main__box__form').on('change', '#child_category_id', function(){
@@ -88,7 +109,7 @@ $(document).ready(function(){
 
           if (grandchildren.length != 0) {
             // 子カテゴリーが変更された時、孫カテゴリーを削除する。
-            $('#grandchild_category').remove(); 
+            $("#grandchild_category_box_id").remove(); 
             let insertHTML = '';
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);
@@ -98,11 +119,11 @@ $(document).ready(function(){
         })
         // エラー警告
         .fail(function(){
-          $('#grandchild_category').remove(); 
+          $("#grandchild_category_box_id").remove(); 
           alert('カテゴリーを選択してください');
         })
       }else{
-        $('#grandchild_category').remove(); 
+        $("#grandchild_category_box_id").remove(); 
       }
     });
   });
