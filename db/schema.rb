@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_038843) do
     t.integer "postage", null: false
     t.integer "prefecture", null: false
     t.integer "shipping_date", null: false
-    t.integer "sale_status", default: 1, null: false
+    t.integer "sale_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_items_on_category_id"

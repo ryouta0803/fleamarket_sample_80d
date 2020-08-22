@@ -81,20 +81,16 @@
                   カテゴリー
                 %span
                   必須
-              .item-detail__inner__box
+              .item-detail__inner__box{ id: 'parentbox_id'}
                 .item-detail__inner__box__select
                   = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---', selected: @parent.id}, { id: 'parent_category'}
-                  .exhibitionPage__main__contents__detail__category__choose
-                    
-              .item-detail__inner__box
+              .item-detail__inner__box{ id: 'child_category_box_id'}
                 .item-detail__inner__box__select
                   = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}"), :id, :name, {prompt: '---', selected: @child.id}, { id: 'child_category_id'}
-                  -# .exhibitionPage__main__contents__detail__category__choose1
-              .item-detail__inner__box
+              .item-detail__inner__box{ id: 'grandchild_category_box_id'}
                 .item-detail__inner__box__select
                   = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}/#{@child.id}"), :id, :name, {prompt: '---', selected: @grandchild.id}, { id: 'grandchild_category'}
 
-    
         .item-detail
           .item-detail__inner
             .item-detail__inner__name
