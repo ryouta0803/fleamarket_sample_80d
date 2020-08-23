@@ -11,7 +11,7 @@ a{
   color:black;
 }
 
-.header{
+.pc_header{
   padding: 0 60px;
   &__contents{
     max-width: 1040px;
@@ -93,13 +93,14 @@ a{
   }
 }
 
-.header__contents__nav-list__left__category__li,
-.header__contents__nav-list__left__brand__li,
-.header__contents__nav-list__right__login__li,
-.header__contents__nav-list__right__new__li{
+.pc_header__contents__nav-list__left__category__li,
+.pc_header__contents__nav-list__left__brand__li,
+
+.pc_header__contents__nav-list__right__login__li,
+.pc_header__contents__nav-list__right__new__li{
   line-height: 38px;
 }
-.header__contents__nav-list__right__new__li{
+.pc_header__contents__nav-list__right__new__li{
   padding: 0 0 0 16px;
 }
 
@@ -238,7 +239,8 @@ a{
   background-size: cover;
   display: flex;
   align-items: center;
-  &__title{
+  .main__contentsdl__title{
+    padding-left: 30px;
     color: #fff;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
     text-align: left;
@@ -249,13 +251,17 @@ a{
   }
   &__text{
     font-size: 27px;
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     font-weight: bold;
     line-height: 1.4;
   
   }
   &__description{
     font-size: 18px;
-      margin: 20px 0 30px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    color: white;
+    margin: 20px 0 30px;
     line-height: 1.5;
   }
   &__btn{
