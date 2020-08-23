@@ -1,7 +1,7 @@
 .wrapper {
   background-color: whitesmoke;
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-
+  height: 100vh;
   .top {
     border-bottom: 1px solid rgb(245, 245, 245);
     background-color: white;
@@ -139,12 +139,14 @@
     justify-content: space-around;
     &__title {
       margin-left: 9vw;
-      padding-top: 5vh;
+      padding-top: 10vh;
+      font-size: 20px;
     }
     
     &__info {
       display: flex;
       justify-content: space-around;
+      padding-top: 30px;
     }
     
   }
@@ -163,9 +165,33 @@
   }
   
 }
-  .footer {
-    height: 5vh;
-    width: 100vw;
-    background-color: whitesmoke;
+.login_footer-main{
+  margin-top: auto;
+  text-align: center;
+  padding: 70px 0px 41px;
+  background: whitesmoke;
+  &__toc {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    &__content {
+      margin: 16px 0 0 20px;
+    }
   }
+  &__logo {
+    img {
+      height: 50px;
+      margin-bottom: 8px;
+      width: 100px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+  // .footer {
+  //   height: 5vh;
+  //   width: 100vw;
+  //   background-color: whitesmoke;
+  // }
   
