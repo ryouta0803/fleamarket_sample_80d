@@ -41,7 +41,4 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-
-
-  # root "items#index"
 end

@@ -83,7 +83,8 @@
             発送元・お届け先住所
             = icon('fas', 'chevron-right', class: 'mypage-icon')
         %li
-          =link_to card_path, class: "main-contents__side-container__mypage-nav__config__li__a" do
+
+          =link_to new_card_path(current_user[:id]), class: "main-contents__side-container__mypage-nav__config__li__a" do
             支払い方法
             = icon('fas', 'chevron-right', class: 'mypage-icon')
         %li
