@@ -1,7 +1,11 @@
+
+*{
+  box-sizing: border-box;
+}
 .wrapper {
   background-color: whitesmoke;
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  height: 100vh;
+
   .top {
     border-bottom: 1px solid rgb(245, 245, 245);
     background-color: white;
