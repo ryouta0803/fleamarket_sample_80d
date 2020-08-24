@@ -339,8 +339,7 @@
             display: inline-block;
             position: relative;
             width: inherit;
-            select{
-              background-color: #fff;
+            input{
               border: 1px solid #ccc;
               border-radius: 4px;
               box-sizing: border-box;
@@ -350,7 +349,7 @@
               margin: 0;
               outline: none;
               padding: 0 16px;
-              width: inherit;
+              width: 100%;
             }
           }
         }
