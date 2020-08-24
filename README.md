@@ -4,13 +4,14 @@
 - メルカリクローンのフリーマーケットサイトです。
 - 
 - 作成期間 2020/8/4 ~ 2020/8/
- ![top_page](https://gyazo.com/cdf811df46a548206fb538329cfb41f9)
+ <!-- ![top_page](https://gyazo.com/cdf811df46a548206fb538329cfb41f9) -->
+ <a>![top_page](https://user-images.githubusercontent.com/67991805/90978959-75a2b100-e58c-11ea-9e60-b07cd9f63878.gif)</a>
 
 ## :paperclip: 主な使用言語
 <a><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a> <!-- rubyのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774548-731b2900-2fb4-11ea-99ba-565546c5acb4.png" height="60px;" /></a> <!-- RubyOnRailsのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774618-b32edb80-2fb5-11ea-9050-d5929a49e9a5.png" height="60px;" /></a> <!-- Hamlのロゴ -->
-<a><<img src="https://user-images.githubusercontent.com/39142850/71774644-115bbe80-2fb6-11ea-822c-568eabde5228.png" height="60px" /></a> <!-- Scssのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774644-115bbe80-2fb6-11ea-822c-568eabde5228.png" height="60px" /></a> <!-- Scssのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774768-d064a980-2fb7-11ea-88ad-4562c59470ae.png" height="65px;" /></a> <!-- jQueryのロゴ -->
 <a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
 
@@ -52,7 +53,8 @@
 # :page_facing_up: DB設計
 
 ## ER図
-![er](https://gyazo.com/8f33089657101d89ff4e2734e9568194)
+<!-- ![er](https://gyazo.com/8f33089657101d89ff4e2734e9568194) -->
+<a><img width="1243" alt="dcc22b7560b21da7ca07f680e33591c7" src="https://user-images.githubusercontent.com/67991805/90978720-d5985800-e58a-11ea-8139-6a530d14806f.png"></a>
 
 
 ## usersテーブル
