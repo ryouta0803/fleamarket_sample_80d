@@ -11,10 +11,14 @@
             %li.display__up__slide-image
               - @item.item_imgs.first(1).each do |item_image|
                 = image_tag "#{item_image.image}", size: "300x300"
+                -if @item.sale_status.present?
+                  .item__box__picture__sold
+                    .item__box__picture__sold__inner SOLD
           %ul.display__down
             %li.display__down__thumbnail-image
               - @item.item_imgs.each do |item_img|
                 = image_tag "#{item_img.image}", size: "60x60"
+            
 
       %table.detail
         %tbody
