@@ -128,23 +128,23 @@ a{
         font-size: 58px;
         line-height: 1.2;
         color: #fff;
-        &__btn{
-          display: flex;
-          margin: 24px 0 0 0;
-          a{
-            margin-right: 10px;
-          }
-          img{
-            width: 150px;
-          }
-        }
       }
       &__text{
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-size: 18px;
-      color: #fff;
-      line-height: 1.77778;
-      margin: 16px 0 0 0;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        color: #fff;
+        line-height: 1.77778;
+        margin: 16px 0 0 0;
+      }
+      &__btn{
+        display: flex;
+        margin: 24px 0 0 0;
+        a{
+          margin-right: 10px;
+        }
+        img{
+          width: 180px;
+        }
       }
     }
   }
@@ -272,7 +272,7 @@ a{
       margin-right: 10px;
     }
     img{
-      width: 150px;
+      width: 180px;
     }
   }
 }
@@ -478,14 +478,13 @@ background-color: #fff;
         }
       }
     
-
 .banner{
   background-image: image-url('bg-appBanner-pict.jpg');
   padding: 100px 40px;
   position: relative;
   background-size: cover;
   background-position: center;
-  .inner{
+  &__inner{
     color: #fff;
     text-align: center;
     &__title{
@@ -498,16 +497,14 @@ background-color: #fff;
     font-size: 35px;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
-    .main__content__btn{
+    &__btn{
       display: flex;
       margin: 24px 0 0 0;
-      justify-content: center;
-      
       a{
         margin-right: 10px;
       }
       img{
-        width: 150px;
+        width: 180px;
       }
     }
   }
