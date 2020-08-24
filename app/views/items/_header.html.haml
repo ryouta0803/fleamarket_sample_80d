@@ -6,7 +6,7 @@
           =image_tag "logo.png",alt: "ロゴ"
       .pc_header__contents__content__search-box
         %form
-          %input.pc_header__contents__content__search-box__input{name: "",:placeholder => "キーワードから探す", :type =>"", :value => ""}/
+          %input.pc_header__contents__content__search-box__input{name: "",placeholder: "キーワードから探す", type: "", value: ""}/
           %button{type: "submit"}
             .pc_header__contents__content__search-box__icon
               =image_tag "icon-search 1.png",alt: "ロゴ"
@@ -18,7 +18,7 @@
             %li.pc_header__contents__nav-list__left__category__li
               =link_to "#", class: "categories" do
                 カテゴリー
-              -# = render partial: 'home/categories_drop'カテゴリ未設定によりエラー表示を防ぐため
+              -# = render partial: 'home/categories_drop'カテゴリ未設定によりエラー表示を防ぐためコメントアウト
           .pc_header__contents__nav-list__left__brand
             %li.pc_header__contents__nav-list__left__brand__li
               =link_to "#" do
