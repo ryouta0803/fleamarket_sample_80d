@@ -83,13 +83,13 @@
                   必須
               .item-detail__inner__box{ id: 'parentbox_id'}
                 .item-detail__inner__box__select
-                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---', selected: @parent.id}, { id: 'parent_category'}
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---', selected: @parent&.id}, { id: 'parent_category'}
               .item-detail__inner__box{ id: 'child_category_box_id'}
                 .item-detail__inner__box__select
-                  = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}"), :id, :name, {prompt: '---', selected: @child.id}, { id: 'child_category_id'}
+                  = f.collection_select :category_id, Category.where(ancestry: "#{@parent&.id}"), :id, :name, {prompt: '---', selected: @child&.id}, { id: 'child_category_id'}
               .item-detail__inner__box{ id: 'grandchild_category_box_id'}
                 .item-detail__inner__box__select
-                  = f.collection_select :category_id, Category.where(ancestry: "#{@parent.id}/#{@child.id}"), :id, :name, {prompt: '---', selected: @grandchild.id}, { id: 'grandchild_category'}
+                  = f.collection_select :category_id, Category.where(ancestry: "#{@parent&.id}/#{@child&.id}"), :id, :name, {prompt: '---', selected: @grandchild&.id}, { id: 'grandchild_category'}
 
         .item-detail
           .item-detail__inner
@@ -100,7 +100,7 @@
                 任意
             .item-detail__inner__brand
               .item-detail__inner__brand__inner
-                = f.text_field :brand, placeholder:"例）シャネル　※現段階では入力出来ません。",class: "select", disabled: "disable"
+                = f.text_field :brand, placeholder:"例）シャネル",class: "input"
         .item-detail
           .item-detail__inner
             .item-detail__inner__name
