@@ -94,9 +94,9 @@
               - if index == 0
                 = link_to item_path(item.id),class: "top-main__contents__item-box__image__img" do
                   = image_tag(image.image.url, width: '213', height: '213', alt: "アイテム個別画像")
-                  -# -if item.buyer_id.present? buyer_idないためエラー防止
-                -# .item__box__picture__sold
-                -#   .item__box__picture__sold__inner SOLD OUT
+                  -if item.sale_status.present?
+                    .item__box__picture__sold
+                      .item__box__picture__sold__inner SOLD
                 - break
             .main__picture__box__lists__list__productList--body
               %h3.name
@@ -122,9 +122,9 @@
               - if index == 0
                 = link_to item_path(item.id),class: "top-main__contents__item-box__image__img" do
                   = image_tag(image.image.url, width: '213', height: '213', alt: "アイテム個別画像")
-                  -# -if item.buyer_id.present? buyer_idないためエラー防止
-                -# .item__box__picture__sold
-                -#   .item__box__picture__sold__inner SOLD OUT
+                  -if item.sale_status.present?
+                    .item__box__picture__sold
+                      .item__box__picture__sold__inner SOLD
                 - break
             .main__picture__box__lists__list__productList--body
               %h3.name
