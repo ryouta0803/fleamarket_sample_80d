@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      @grandchild = @item.category
+      @child = @grandchild.parent
+      @parent = @child.parent
       render :new
     end
   end
@@ -38,6 +41,7 @@ class ItemsController < ApplicationController
 
 
   def edit
+    @item.item_imgs.new
     @grandchild = @item.category
     @child = @grandchild.parent
     @parent = @child.parent
@@ -47,6 +51,9 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path
     else
+      @grandchild = @item.category
+      @child = @grandchild.parent
+      @parent = @child.parent
       render :edit
     end
   end
