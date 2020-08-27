@@ -3,8 +3,7 @@
 
 - メルカリクローンのフリーマーケットサイトです。
 - 
-- 作成期間 2020/8/4 ~ 2020/8/
- <!-- ![top_page](https://gyazo.com/cdf811df46a548206fb538329cfb41f9) -->
+- 作成期間 2020/8/4 ~ 2020/8/27
  <a>![top_page](https://user-images.githubusercontent.com/67991805/90978959-75a2b100-e58c-11ea-9e60-b07cd9f63878.gif)</a>
 
 ## :paperclip: 主な使用言語
@@ -19,6 +18,7 @@
 - 新規会員登録・ログインをすると商品の購入、出品が出来ます。
 - 新規会員登録、ログインをしていない方でも商品の一覧、詳細を閲覧出来ます。
 - 決済方法はご自身のクレジットカードを登録して購入出来ます。
+- ※個人情報につきテストコードにて運用中
 
 ## メンバー&実装内容の紹介
 ### 飯田正也
@@ -40,6 +40,7 @@
 ### 児玉亮太
 - 商品出品ページ（ビュー）
 - 商品購入機能（サーバーサイド）
+- 商品削除機能(サーバーサイド)
 
 ### 山内聡
 - トップページ（ビュー）
@@ -48,12 +49,18 @@
 
 ## サイトURL紹介
 - IPアドレス:http://3.115.242.70/
+### BASIC認証
+- 【ID】katopu
+- 【Pass】katokato1234
+### クレジットカード情報(テストコード)
+- 番号：4242424242424242
+- 期限：03/23
+- セキュリティカード：123
 
 
 # :page_facing_up: DB設計
 
 ## ER図
-<!-- ![er](https://gyazo.com/8f33089657101d89ff4e2734e9568194) -->
 <a><img width="1243" alt="dcc22b7560b21da7ca07f680e33591c7" src="https://user-images.githubusercontent.com/67991805/90978720-d5985800-e58a-11ea-8139-6a530d14806f.png"></a>
 
 
@@ -73,27 +80,27 @@
 - has_one :addresses
 - has_one :credit_card
 
-## Image_itemsテーブル
+## Itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|brand|references|foreign_key: true|
+|brand|string||
 |name|string|null: false, index: true|
 |price|integer|null: false|
 |explain|text|null: false|
-|status|string|null: false|
+|status|integer|null: false|
 |postage|integer|null: false|
-|prefecture|string|null: false|
-|shipping_date|string|null: false|
+|prefecture|integer|null: false|
+|shipping_date|integer|null: false|
+|sale_status|integer|default: ""|
 ### Association
 - has_many :likes
 - has_many :comments
 - has_many :item_imgs
 - belongs_to :user
 - belongs_to :category
-- belongs_to :brand
 
 ## Commentsテーブル
 
@@ -162,13 +169,3 @@
 |image|string|null: false|
 ### Association
 - belongs_to :item
-
-## Brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :items
-
-* ...
